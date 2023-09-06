@@ -1,0 +1,141 @@
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,mexico]{babel}
+\usepackage{listings}
+\usepackage{amsmath}
+\setlength{\textwidth}{18cm}
+\setlength{\oddsidemargin}{-1cm}
+\setlength{\headsep}{-1cm}
+\setlength{\voffset}{0cm}
+\setlength{\topmargin}{0cm}
+\setlength{\headheight}{0cm}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usetikzlibrary{calc,arrows}
+\usepackage{multicol}
+\usepackage{lipsum} 
+
+\usepackage{graphicx}
+\usepackage{forest}
+\usepackage{tikz-qtree}
+
+\begin{document}
+
+%%%%%% ENCABEZADO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \colorbox{white!10!}{
+        \begin{minipage}[t]{0.16 \textwidth}
+           \begin{flushright}
+            \includegraphics[width=1in]{UNAM.png}
+           \end{flushright}
+        \end{minipage}
+        \begin{minipage}[H]{0.62 \textwidth}
+            \begin{center}
+                {\large \textsc{Universdad Nacional Autónoma de México}}
+                \vspace{0.25cm}
+                \\
+                { \large \textbf{Lenguajes de Programacion\\ Examen Parcial I}}                
+                \textbf{}
+                \begin{multicols}{2}
+                \begin{flushleft}
+                \begin{itemize}
+                    % NOMBRES DE INTEGRANTES
+                    \item  \small Edgar Montiel Ledesma\\ 317317794
+    
+                    \item \footnotesize Carlos Daniel Cortes Jimenez\\ 420004846
+                \end{itemize}
+                \end{flushleft}
+                \vspace{0.25cm}
+                \end{multicols} 
+            \end{center}
+            \vspace{0.05cm}
+        \end{minipage}
+        \begin{minipage}[t]{0.16 \textwidth}
+            \begin{flushleft}
+                \includegraphics[width=1in]{EFC.png}
+            \end{flushleft}
+        \end{minipage}
+    }
+    
+    \begin{tikzpicture}
+        \draw[thick] (-6.5,0)--(11.2,0);
+    \end{tikzpicture}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{itemize}
+        \item[1.] En el lenguaje de programacion Zoo, los nombres para variables deben empezar con el caracter ’V’ seguido por una cadena cualquiera no vacıa de caracteres ’o’ o ’z’.
+            \begin{itemize}
+                \item[a)]Defina un juicio ozv tal que s ozv se cumpla si y solo si s es un nombre valido de variable en Zoo.
+                \item[b)] Derive V ozo ozv usando sus reglas.
+                \item[c)] Enuncie el principio de induccion estructural para el juicio ozv y utilicelo para demostrar que: si w ozv entonces $\exists u \in {o, z}+ (w = V u)$ 
+            \end{itemize} 
+        \item[2.] En muchos lenguajes de programacion las expresiones flotantes incluyen el uso de notacion cientıfica. Por ejemplo\\
+        en Pascal la notacion cientıfica se expresa usando una letra e. Por ejemplo $+9.67$e$-15$ significa $9.67$ × $10-15$ y las expresiones flotantes son de alguna de las siguientes tres formas:
+            \begin{center}
+                s.u s e r s.u e r
+            \end{center}
+        donde s, r son enteros signados y u es un entero no signado.
+            \begin{itemize}
+                \item[a)] Defina un juicio pfloat que genere a las expresiones flotantes de Pascal. Observe que debe tambien definir juicios para enteros signados y no signados.
+                \item[b)] Utilice su definicion para dar una derivacion de $+9.67$e$-15$.
+            \end{itemize}
+        Sugerencia: siempre es util definir primero una gramatica libre de contexto adecuada y transformarla en el juicio deseado.
+
+        \item[3.] Un proceso estandar en la implementacion de compiladores es el llamado plegado de constantes (constant folding) que consiste en reconocer y evaluar expresiones constantes en tiempo de compilacion en vez de computar los resultados en tiempo de ejecucin, esto incluye simplificaciones usando propiedades aritmeticas. Por ejemplo la expresion $(2+3+y)*(x+4*5)$ se simplifica a $(5 + y)*(x + 20)$, la expresion $2 * x + 0$ se simplifica en $2 * x$ y la expresion $1 * (x + 2 * z)$ se simplifica en $x + 2 * z$. Considere el siguiente lenguaje EAs de expresiones aritmeticas simples.
+            \begin{center}
+                $e ::= x | n | e + e | -e | e * e | (e)$
+            \end{center}
+    
+            \begin{itemize}
+                \item[a)] Defina una funcion $cfold :: EAs \rightarrow EAs$ que realize el proceso de plegado de constantes. Puede utilizar pseudocodigo de Haskell.
+                \item[b)] Verifique que su definicion es correcta mediante el computo de $cfold((5 + 2) + x * 1)$
+                \item[c)] Defina el interprete denotativo para EAs y demuestre su correccion con respecto al plegado de constantes, es decir, demuestre que para cualquier expresion e se cumple que
+                    \begin{center}
+                        $eval s e = eval s (cfold e)$
+                    \end{center}
+            \end{itemize}
+
+        \item[4.] A continuacion se define la sintaxis concreta de un lenguaje funcional muy simple.
+            \begin{center}
+                $e ::= x | n | e1 e2 | fun (x) \rightarrow e$
+            \end{center}
+
+        En donde el primer constructor representa las variables del lenguaje, el segundo numeros naturales, el tercero aplicacion de funcion y el ultimo la definicion de funciones.
+            \begin{itemize}
+                \item[a)] Traduce la gramatica anterior a una definicion inductiva con reglas de inferencia.
+                \item[b)] Disena una sintaxis abstracta apropiada para este lenguaje.
+                Hint: Primero observa si es necesario alguna especie de ligado como el que define el operador let visto en clase.
+                \item[c)] Escribe las reglas para la relacion de analisis sintactico $(\leftarrow\rightarrow)$ del lenguaje.
+                \item[d)] Disena un algoritmo de sustitucion para este lenguaje.
+                \item[e)] La relacion de $\alpha$-equivalencia en este lenguaje se da respecto al operador de definicion de funcion fun, se dice que dos expresiones son $\alpha$-equivalentes si solo difieren en el nombre de la variable del parametro de la funcion. Por ejemplo:
+                \begin{center}
+                    $fun (x) \rightarrow x \equiv\alpha fun (y) \rightarrow y$
+                \end{center}
+        Demuestra que $\equiv\alpha$ es una relacion de equivalencia.
+            \end{itemize}
+        \item[5.] Juanito Alimana quiere definir un lenguaje que le permita controlar un robot con movimientos y funcionalidades muy simples. El robot se mueve sobre una cuadricula siguiendo las instrucciones especificadas por el programa. Al inicio el robot se encuentra en a coordenada (0, 0) y viendo hacia el norte. El programa consiste en una secuencia posiblemente vacıa de los comandos move y turn separados por punto y coma, cada comando tiene el siguiente funcionamiento:
+            \begin{itemize}
+                \item turn hace que el robot de un giro de 90 grados en el sentido de las manecillas del reloj.
+                \item move provoca que el robot avance una casilla en la direccion hacıa la que esta viendo.
+            \end{itemize}
+            Un ejemplo de un programa valido es:
+            \begin{center}
+                move;turn;move;turn;turn;turn;move
+            \end{center}
+
+            Al final del programa el robot termina en la casilla (2, 1). La primera entrada de la coordenada
+            indica la posicion vertical mientras que la segunda es la posicion horizontal.\\ 
+            Juanito nos pidio definir la semantica operacional de paso pequeno para el lenguaje que controla al robot. Para esto responde las siguientes preguntas formalmente, para disenar un sistema de transicion:
+                \begin{itemize}
+                    \item[a)] Determina el conjunto de estados.
+                    \item[b)] Identifica los estados iniciales y finales del sistema de transicion.
+                    \item[c)] Define la funcion de transicion $\rightarrow$R que indique como se debe transitar entre los estados del sistema. De tal forma que defina una semantica operacional de paso pequeno.
+                    \item[d)] Muestra paso a paso la ejecucion del programa
+                \end{itemize}
+                \begin{center}
+                    move;turn;move;turn;turn;turn;move
+                \end{center}
+            usando la relacion $\rightarrow$R y partiendo del estado inicial correspondiente.
+    \end{itemize}
+\end{document}
