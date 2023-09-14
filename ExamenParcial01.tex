@@ -89,7 +89,23 @@
                 \end{align*}
 
                 \item[b)] Derive V ozo ozv usando sus reglas.
-                \item[c)] Enuncie el principio de induccion estructural para el juicio ozv y utilicelo para demostrar que: si w ozv entonces $\exists u \in {o, z}+ (w = V u)$ 
+                \item[c)] Enuncie el principio de induccion estructural para el juicio ozv y utilicelo para demostrar que: si w ozv entonces $\exists u \in {o, z}+ (w = V u)$\\
+
+                Si w = "V", entonces $\exists$u $\in$ o, z (w = V u).\\
+
+                Paso de la inducción: Supongamos que tenemos una cadena w que es un nombre válido de variable en el lenguaje Zoo, es decir, ozv(w) es verdadero. Queremos demostrar que para cualquier cadena más compleja w\' que se pueda formar al agregar un carácter \'o\' o \'z\' al final de w, la propiedad sigue siendo verdadera. Entonces, consideremos dos casos:\\
+
+                Caso 1: Si agregamos \'o\' al final de w para formar w\', entonces podemos decir que w\' = w \'o\'. Dado que w ya es un nombre válido de variable, podemos tomar u igual a w y todavía se cumplirá la propiedad:\\
+
+                Si w\' = w \'o\', entonces $\exists$u $\in$ o, z (w\' = V u).\\
+
+                Caso 2: Podemos decir que w' = w 'z' si agregamos "z" al final de w para formar w'. Dado que w ya es un nombre válido de variable, podemos tomar u igual a w y aún se cumplirá la propiedad:\\ 
+
+                Si w\' = w \'z\', entonces $\exists$u $\in$ o, z (w\' = V u).\\
+
+                En ambos casos demostramos que si la propiedad es verdadera para w, también es verdadera para w', donde w' se construye agregando "o" o "z" al final de w.\\
+
+                Por lo tanto la propiedad es verdadera para todas las cadenas w, que son nombres de variable válidos en el lenguaje Zoo.
             \end{itemize} 
         \item[2.] En muchos lenguajes de programacion las expresiones flotantes incluyen el uso de notacion cientıfica. Por ejemplo\\
         en Pascal la notacion cientıfica se expresa usando una letra e. Por ejemplo $+9.67$e$-15$ significa $9.67$ × $10-15$ y las expresiones flotantes son de alguna de las siguientes tres formas:
