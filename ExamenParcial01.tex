@@ -18,6 +18,8 @@
 \usepackage{multicol}
 \usepackage{lipsum} 
 
+\usepackage{amsmath}
+
 \usepackage{graphicx}
 \usepackage{forest}
 \usepackage{tikz-qtree}
@@ -69,7 +71,23 @@
     \begin{itemize}
         \item[1.] En el lenguaje de programacion Zoo, los nombres para variables deben empezar con el caracter ’V’ seguido por una cadena cualquiera no vacıa de caracteres ’o’ o ’z’.
             \begin{itemize}
-                \item[a)]Defina un juicio ozv tal que s ozv se cumpla si y solo si s es un nombre valido de variable en Zoo.
+                \item[a)]Defina un juicio ozv tal que s ozv se cumpla si y solo si s es un nombre valido de variable en Zoo.\\
+                ozv(s) $\Leftrightarrow$ (s comienza con V) $\land$ (s contiene al menos un o $\lor$ z despues de V)\\
+                Donde:\\
+                \begin{itemize}
+                    \item s representa la cadena que se esta evaluando.
+                    \item $\Leftrightarrow$ "si y solo si"
+                    \item (s comienza con V) es verdadero si el primer carácter de la cadena s es V.
+                    \item (s contiene al menos un o $\lor$ z despues de V) es verdadero si la cadena s contiene al menos un carácter o $\lor$ z después del primer caracter V.
+                \end{itemize}
+
+                \begin{align*}
+                    \frac{P}{Q} & \text{(Premisa)} \\
+                    \frac{Q \Rightarrow R}{R} & \text{(Premisa)}\\
+                    &\rule{2cm}{0.1pt}&\\
+                    \frac{P}{R}&\text{(Modus Ponens)}
+                \end{align*}
+
                 \item[b)] Derive V ozo ozv usando sus reglas.
                 \item[c)] Enuncie el principio de induccion estructural para el juicio ozv y utilicelo para demostrar que: si w ozv entonces $\exists u \in {o, z}+ (w = V u)$ 
             \end{itemize} 
