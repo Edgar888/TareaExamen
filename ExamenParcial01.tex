@@ -110,7 +110,35 @@
     
             \begin{itemize}
                 \item[a)] Defina una funcion $cfold :: EAs \rightarrow EAs$ que realize el proceso de plegado de constantes. Puede utilizar pseudocodigo de Haskell.
+
+                \begin{lstlisting}[language=Haskell]
+
+                cfold :: EAs -> EAs
+                cfold (x) = x
+                cfold (n) = n
+                cfold (e1 + e2) | isNumber e1 && isNumber e2 = e1 + e2
+                                | otherwise = cfold e1 + cfold e2
+                cfold (-e) | isNumber e = -e
+                           | otherwise = -cfold e
+                cfold (e1 * e2) | isNumber e1 && isNumber e2 = e1 * e2
+                                | otherwise = cfold e1 * cfold e2
+                cfold (e) = e
+
+                isNumber :: EAs -> Bool
+                isNumber (n) = True
+                isNumber (_) = False
+                
+                \end{lstlisting}
+
                 \item[b)] Verifique que su definicion es correcta mediante el computo de $cfold((5 + 2) + x * 1)$
+
+                Verificamos que la definicion de $cfold$ es correcta:\\
+                Evaluamos primero $cfold((5 + 2)$ $\rightarrow$ $cfold(7)$ dado que 7 es una constante se simplifica a 7.\\
+
+                Ahora evealuamos $cfold(x * 1)$ $\rightarrow$ $cfold(x)$ ya que 1 es una constante, y al multiplicar por 1 obtendremos el mismo valor por lo que la expresión se simplifica a solo $x$.\\
+
+                Por lo que el resultado de aplicar $cfold$ a $(5 + 2) + x * 1$ es $7 + x$.\\
+                
                 \item[c)] Defina el interprete denotativo para EAs y demuestre su correccion con respecto al plegado de constantes, es decir, demuestre que para cualquier expresion e se cumple que
                     \begin{center}
                         $eval s e = eval s (cfold e)$
