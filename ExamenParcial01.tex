@@ -159,6 +159,40 @@
                     \begin{center}
                         $eval s e = eval s (cfold e)$
                     \end{center}
+
+                \begin{lstlisting}[language=Haskell]
+                
+                    eval :: EVar -> EAs -> Integer
+                    eval s (x) = s x  
+                    eval s (n) = n    
+                    eval s (e1 + e2) = eval s e1 + eval s e2 
+                    eval s (-e) = -eval s e                 
+                    eval s (e1 * e2) = eval s e1 * eval s e2
+                    
+                \end{lstlisting}    
+                Ahora demostramos la corrección del intérprete con respecto al plegado de constantes.\\
+
+                \textbf{Demostración:} Induccion estructural sobre la expresión e.\\
+                
+                \textbf{Casos Base:}
+                \begin{itemize}
+                \item Si $e$ es una variable $x$, en ambos lados de la expresión son iguales, en $eval$ $s$ $e$ devuelve el valor esperado x, así como en $eval$ $s$ ($cfold$ $e$) tambien devuelve $x$, ya que $cfold$ no hace ninguna simplificación. Por lo tanto $eval$ $s$ $e$ = $eval$ $s$ ($cfold$ $e$).\\
+
+                \item Si $e$ es una constante $n$, asi como en el caso anterior ambas partes serán iguales, debido a que $cfold$ no altera constantes, por lo que en ambos lados devuelve $n$, entonces $eval$ $s$ $e$ = $eval$ $s$ ($cfold$ $e$).\\
+                \end{itemize}
+
+                \textbf{Hipótesis de Inducción(H.I.)}: Para una expresión $e$ arbitraria y estado $s$, se cumple que $eval$ $s$ $e$ = $eval$ $s$ ($cfold$ $e$).\\
+
+                \textbf{Paso Inductivo:}
+                \begin{itemize}
+                    \item Suma($+$): Supongamos que se cumple la H.I. para $e1$ y $e2$, esto es $eval$ $s$ $e1$ = $eval$ $s$ ($cfold$ $e1$) y $eval$ $s$ $e2$ = $eval$ $s$ ($cfold$ $e2$).Consideremos $e$ = $e1 + e2$, para este caso $eval$ $s$ ($e1$ + $e2$) realiza la suma de los valores $e1$ y $e2$ que seria $eval$ $s$ $e1$ + $eval$ $s$ $e2$.Por lo que se tiene $eval$ $s$ ($e1$ + $e2$) = $eval$ $s$ $e1$ + $eval$ $s$ $e2$.Hacemos los mismo para $eval$ $s$ ($cfold$ $e1$ + $cfold$ $e2$), e cual realiza la suma de los valores $cfold$ $e1$ y $cfold$ $e2$ que sería $eval$ $s$ ($cfold$ $e1$) + $eval$ $s$ ($cfold$ $e2$). Por H.I. tenemos que $eval$ $s$ ($cfold$ $e1$) = $eval$ $s$ $e1$, a su vez tambien se tiene que $eval$ $s$ ($cfold$ $e2$) = $eval$ $s$ $e2$. Por lo tanto $eval$ $s$ ($cfold$ $e1$ + $cfold$ $e2$) = $eval$ $s$ $e1$ + $eval$ $s$ $e2$.Se demuestra que $eval$ $s$ ($e1$ + $e2$) = $eval$ $s$ ($cfold$ $e1$ + $cfold$ $e2$).\\
+
+                    \item Multiplicación($*$): Analogamente al caso de la suma, supongamos que se cumple la H.I. para $e1$ y $e2$, esto es $eval$ $s$ $e1$ = $eval$ $s$ ($cfold$ $e1$) y $eval$ $s$ $e2$ = $eval$ $s$ ($cfold$ $e2$).Consideremos $e$ = $e1$ $*$ $e2$, para este caso $eval$ $s$ ($e1$ $*$ $e2$) realiza el producto de los valores $e1$ y $e2$ que seria $eval$ $s$ $e1$ $*$ $eval$ $s$ $e2$.Por lo que se tiene $eval$ $s$ ($e1$ $*$ $e2$) = $eval$ $s$ $e1$ + $eval$ $s$ $e2$.Hacemos los mismo para $eval$ $s$ ($cfold$ $e1$ + $cfold$ $e2$), el cual realiza el producto de los valores $cfold$ $e1$ y $cfold$ $e2$ que sería $eval$ $s$ ($cfold$ $e1$) $*$ $eval$ $s$ ($cfold$ $e2$). Por H.I. tenemos que $eval$ $s$ ($cfold$ $e1$) = $eval$ $s$ $e1$, a su vez tambien se tiene que $eval$ $s$ ($cfold$ $e2$) = $eval$ $s$ $e2$. Por lo tanto $eval$ $s$ ($cfold$ $e1$ $*$ $cfold$ $e2$) = $eval$ $s$ $e1$ + $eval$ $s$ $e2$.Se demuestra que $eval$ $s$ ($e1$ + $e2$) = $eval$ $s$ ($cfold$ $e1$ + $cfold$ $e2$)y entonces $eval$ $s$ $e$ = $eval$ $s$ ($cfold$ $e$).\\
+
+                    \item Negación($-$): Supongamos que se cumple la H.I. para $e$, entonces se tiene que eval s e = eval s (cfold e).Consideremos  $e$ = $-e$, para este caso $eval$ $s$ ($-e$) realiza la negación del valor $e$ que seria $-eval$ $s$ $e$.Por lo que se tiene $eval$ $s$ ($-e$) = $-eval$ $s$ $e$. Hacemos lo mismo para $eval$ $s$ ($-cfold$ $e$) el cual realiza la negación del valor $cfold$ $e$ que sería $-eval$ $s$ ($cfold$ $e$). Por H.I. tenemos que $eval$ $s$ ($cfold$ $e$) = $eval$ $s$ $e$.Por lo tanto $eval$ $s$ ($-cfold$ $e$) = $-eval$ $s$ $e$. Se demuestra que $eval$ $s$ ($-e$) = $eval$ $s$ ($-cfold$ $e$).\\
+                \end{itemize}
+                Por lo tanto, para cualquier expresion $e$ se cumple que $eval$ $s$ $e$ = $eval$ $s$ ($cfold$ $e$) en el lenguaje EAs.\\
+
             \end{itemize}
 
         \item[4.] A continuacion se define la sintaxis concreta de un lenguaje funcional muy simple.
