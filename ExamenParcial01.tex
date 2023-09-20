@@ -17,6 +17,8 @@
 \usetikzlibrary{calc,arrows}
 \usepackage{multicol}
 \usepackage{lipsum} 
+\usepackage{multirow}
+
 
 \usepackage{amsmath}
 
@@ -88,14 +90,39 @@
                     \end{itemize}
                 \end{center}
 
-                \begin{align*}
-                    \frac{P}{Q} & \text{(Premisa)} \\
-                    \frac{Q \Rightarrow R}{R} & \text{(Premisa)}\\
-                    &\rule{2cm}{0.1pt}&\\
-                    \frac{P}{R}&\text{(Modus Ponens)}
-                \end{align*}
+                En forma norlmal de Chomsky tenemos
+                \begin{center}
+                    \begin{itemize}
+                        \item[ ] S $\rightarrow$ S'x 
+                        \item[ ] S' $\rightarrow$ V
+                        \item[ ] O $\rightarrow$ o
+                        \item[ ] Z $\rightarrow$ z
+                        \item[ ] x $\rightarrow$ $ Ox \,|\, Zx \,|\, o \,|\, z $
+                    \end{itemize}
+                \end{center}
+
+                Las reglas de inferencia serian
+                \begin{center}
+                \LARGE
+                    \begin{tabular}{|c c c|}
+                        \hline
+                        $\frac{}{z \text{ zoo}} \text{r1}$ & $\frac{o \text{ zoo} x \text{ zoo}}{Ox \text{ zoo}} \text{r3}$ & $\frac{S' \text{ zoo} x \text{ zoo}}{S'x \text{ zoo}} \text{r5}$ \\
+                        $\frac{}{o \text{ zoo}} \text{r2}$ & $\frac{z \text{ zoo} x \text{ zoo}}{Zx \text{ zoo}} \text{r4}$ &  \\
+                        \hline
+                    \end{tabular}
+                \end{center}
 
                 \item[b)] Derive V ozo ozv usando sus reglas.
+                    \begin{center}
+                    \LARGE
+                        \begin{itemize}
+                            %\item  $\frac{{V \text{ zoo} \frac{}{o \text{zoo} z \text{zoo}}\text{r1}}{oz \text{zoo}\text{r1}}} \text{r5}} {Voz \text{ zoo}} \text{r5}$
+
+                            \item[ ] $\frac{\frac{}{V \text{ zoo}} \frac{\frac{}{o \text{ zoo}}\text{r2} \frac{}{z \text{ zoo}}\text{r1}}{oz \text{zoo}} \text{r3}} {Voz \text{ zoo}} \text{r5}$
+                        \end{itemize}
+                        
+                                                
+                    \end{center}
                 \item[c)] Enuncie el principio de induccion estructural para el juicio ozv y utilicelo para demostrar que: si w ozv entonces $\exists u \in {o, z}+ (w = V u)$\\
 
                 Si w = "V", entonces $\exists$u $\in$ o, z (w = V u).\\

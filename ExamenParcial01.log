@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2023.8.25)  19 SEP 2023 11:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2023.8.27)  20 SEP 2023 16:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -352,7 +352,7 @@ Package: inputenc 2021/02/14 v1.3d Input encoding file
 Package: babel 2022/12/26 3.84 The Babel package
 \babel@savecnt=\count280
 \U@D=\dimen197
-\l@unhyphenated=\language87
+\l@unhyphenated=\language6
 
 (/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read3
@@ -560,6 +560,13 @@ Package: lipsum 2021-09-20 v2.7 150 paragraphs of Lorem Ipsum dummy text
 \l__lipsum_b_int=\count316
 
 (/usr/share/texlive/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex))
+(/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
+Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
+\multirow@colwidth=\skip55
+\multirow@cntb=\count317
+\multirow@dima=\skip56
+\bigstrutjot=\dimen277
+)
 (/usr/share/texlive/texmf-dist/tex/latex/forest/forest.sty
 Package: forest 2017/07/14 v2.1.5 Drawing (linguistic) trees
 
@@ -639,7 +646,7 @@ File: tikzlibraryfit.code.tex 2023-01-15 v3.1.10 (3.1.10)
 s.code.tex
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex
 )
-\pgf@intersect@solutions=\count317
+\pgf@intersect@solutions=\count318
 ) (/usr/share/texlive/texmf-dist/tex/latex/pgfopts/pgfopts.sty
 Package: pgfopts 2014/07/10 v2.1a LaTeX package options with pgfkeys
 \pgfopts@list@add@a@toks=\toks38
@@ -647,7 +654,7 @@ Package: pgfopts 2014/07/10 v2.1a LaTeX package options with pgfkeys
 )
 (/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count318
+\etb@tempcnta=\count319
 )
 (/usr/share/texlive/texmf-dist/tex/latex/elocalloc/elocalloc.sty
 Package: elocalloc 2016/12/15 v0.03 local allocation for LaTeX 2015+ (DPC)
@@ -664,86 +671,86 @@ Package: xparse 2023-01-16 L3 Experimental document command parser
 (/usr/share/texlive/texmf-dist/tex/latex/inlinedef/inlinedef.sty
 Package: inlinedef 2008/07/10 v1.0 Inlined expansions within definitions
 \ID@toks=\toks40
-\ID@count=\count319
+\ID@count=\count320
 )
 \ID@usercommands=\toks41
-\safeloop@depth=\count320
-\safeRKloop@depth=\count321
-\forest@temp@dimen=\dimen277
-\forest@temp@count=\count322
-\forest@n=\count323
-\forest@temp@global@count=\count324
+\safeloop@depth=\count321
+\safeRKloop@depth=\count322
+\forest@temp@dimen=\dimen278
+\forest@temp@count=\count323
+\forest@n=\count324
+\forest@temp@global@count=\count325
 \forest@temp@toks=\toks42
-\forest@temparray@M=\count325
-\forest@temparray@N=\count326
-\forest@global@temparray@M=\count327
-\forest@global@temparray@N=\count328
-\forest@isnum@count=\count329
-\forest@isdim@nonintpart=\count330
-\forest@isdim@dimen=\dimen278
-\forest@sort@m=\count331
-\forest@sort@k=\count332
-\forest@sort@p=\count333
+\forest@temparray@M=\count326
+\forest@temparray@N=\count327
+\forest@global@temparray@M=\count328
+\forest@global@temparray@N=\count329
+\forest@isnum@count=\count330
+\forest@isdim@nonintpart=\count331
+\forest@isdim@dimen=\dimen279
+\forest@sort@m=\count332
+\forest@sort@k=\count333
+\forest@sort@p=\count334
 \bracket@content=\toks43
 \bracket@afterthought=\toks44
-\forest@node@maxid=\count334
-\forest@process@left@M=\count335
-\forest@process@left@N=\count336
-\forest@process@right@M=\count337
-\forest@process@right@N=\count338
-\forest@process@saved@M=\count339
-\forest@process@saved@N=\count340
-\forest@process@result@M=\count341
-\forest@process@result@N=\count342
-\forest@process@n=\count343
+\forest@node@maxid=\count335
+\forest@process@left@M=\count336
+\forest@process@left@N=\count337
+\forest@process@right@M=\count338
+\forest@process@right@N=\count339
+\forest@process@saved@M=\count340
+\forest@process@saved@N=\count341
+\forest@process@result@M=\count342
+\forest@process@result@N=\count343
+\forest@process@n=\count344
 \forest@nodewalk@branch@toks=\toks45
 \forest@nodewalk@shortsteps@resolution=\toks46
 \forest@do@dynamics=\toks47
 \forest@box=\box132
-\forest@xg=\dimen279
-\forest@yg=\dimen280
-\forest@xs=\dimen281
-\forest@ys=\dimen282
+\forest@xg=\dimen280
+\forest@yg=\dimen281
+\forest@xs=\dimen282
+\forest@ys=\dimen283
 \forest@pi@toks=\toks48
 \forest@segment@toks=\toks49
 \forest@PIi@toks=\toks50
 \forest@PIii@toks=\toks51
 \forest@copy@in=\read4
 \forest@copy@out=\write4
-\forest@externalize@max@outer@n=\count344
-\forest@externalize@inner@n=\count345
+\forest@externalize@max@outer@n=\count345
+\forest@externalize@inner@n=\count346
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tikz-qtree/tikz-qtree.sty
 (/usr/share/texlive/texmf-dist/tex/latex/tikz-qtree/pgftree.sty
 (/usr/share/texlive/texmf-dist/tex/latex/tikz-qtree/pgfsubpic.sty
 (/usr/share/texlive/texmf-dist/tex/latex/tikz-qtree/pgfsubpic.tex
-\pgf@subpicminx=\dimen283
-\pgf@subpicminy=\dimen284
-\pgf@subpicmaxx=\dimen285
-\pgf@subpicmaxy=\dimen286
+\pgf@subpicminx=\dimen284
+\pgf@subpicminy=\dimen285
+\pgf@subpicmaxx=\dimen286
+\pgf@subpicmaxy=\dimen287
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/tikz-qtree/pgftree.tex
-\levelsep=\dimen287
-\subtreesep=\dimen288
-\smuggle@levelsep=\dimen289
-\smuggle@subtreesep=\dimen290
-\this@levelsep=\dimen291
-\this@subtreesep=\dimen292
-\pgftree@childx=\dimen293
-\pgftree@savechildx=\dimen294
-\pgftree@childy=\dimen295
-\pgftree@savechildy=\dimen296
-\pgftree@childi=\count346
-\pgftree@savechildi=\count347
-\pgftree@level=\count348
-\pgftree@depth=\dimen297
+\levelsep=\dimen288
+\subtreesep=\dimen289
+\smuggle@levelsep=\dimen290
+\smuggle@subtreesep=\dimen291
+\this@levelsep=\dimen292
+\this@subtreesep=\dimen293
+\pgftree@childx=\dimen294
+\pgftree@savechildx=\dimen295
+\pgftree@childy=\dimen296
+\pgftree@savechildy=\dimen297
+\pgftree@childi=\count347
+\pgftree@savechildi=\count348
+\pgftree@level=\count349
+\pgftree@depth=\dimen298
 \pgf@subpic@hbox@children=\box133
-\pgf@subpic@minx@children=\dimen298
-\pgf@subpic@miny@children=\dimen299
-\pgf@subpic@maxx@children=\dimen300
-\pgf@subpic@maxy@children=\dimen301
-\pgftree@lastchildx=\dimen302
-\pgftree@lastchildy=\dimen303
+\pgf@subpic@minx@children=\dimen299
+\pgf@subpic@miny@children=\dimen300
+\pgf@subpic@maxx@children=\dimen301
+\pgf@subpic@maxy@children=\dimen302
+\pgftree@lastchildx=\dimen303
+\pgftree@lastchildy=\dimen304
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/tikz-qtree/tikz-qtree.tex
 \@result=\toks52
@@ -756,33 +763,33 @@ LaTeX Info: Redefining \% on input line 5.
 )
 \openout1 = `ExamenParcial01.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count349
-\scratchdimen=\dimen304
+\scratchcounter=\count350
+\scratchdimen=\dimen305
 \scratchbox=\box134
-\nofMPsegments=\count350
-\nofMParguments=\count351
+\nofMPsegments=\count351
+\nofMParguments=\count352
 \everyMPshowfont=\toks55
-\MPscratchCnt=\count352
-\MPscratchDim=\dimen305
-\MPnumerator=\count353
-\makeMPintoPDFobject=\count354
+\MPscratchCnt=\count353
+\MPscratchDim=\dimen306
+\MPnumerator=\count354
+\makeMPintoPDFobject=\count355
 \everyMPtoPDFconversion=\toks56
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -793,156 +800,155 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Info: Redefining \. on input line 28.
-LaTeX Info: Redefining \% on input line 28.
-\c@lstlisting=\count355
+LaTeX Info: Redefining \. on input line 30.
+LaTeX Info: Redefining \% on input line 30.
+\c@lstlisting=\count356
 <UNAM.png, id=4, 534.99875pt x 601.24625pt>
 File: UNAM.png Graphic file (type png)
 <use UNAM.png>
-Package pdftex.def Info: UNAM.png  used on input line 65.
+Package pdftex.def Info: UNAM.png  used on input line 67.
 (pdftex.def)             Requested size: 72.26999pt x 81.21977pt.
 <EFC.png, id=6, 449.68pt x 513.92pt>
 File: EFC.png Graphic file (type png)
 <use EFC.png>
-Package pdftex.def Info: EFC.png  used on input line 65.
+Package pdftex.def Info: EFC.png  used on input line 67.
 (pdftex.def)             Requested size: 72.26999pt x 82.5896pt.
 
-Overfull \hbox (3.60556pt too wide) in paragraph at lines 65--66
+Overfull \hbox (3.60556pt too wide) in paragraph at lines 67--68
 [][][][][][][] 
  []
 
 
-Overfull \hbox (7.26385pt too wide) in paragraph at lines 69--71
+Overfull \hbox (7.26385pt too wide) in paragraph at lines 71--73
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 74--77
+Underfull \hbox (badness 10000) in paragraph at lines 76--79
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 100--101
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 102--103
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 104--105
+Underfull \hbox (badness 10000) in paragraph at lines 126--127
 
  []
 
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./UNAM.png> <./EFC.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 106--107
+Underfull \hbox (badness 10000) in paragraph at lines 128--129
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 108--109
+Underfull \hbox (badness 10000) in paragraph at lines 130--131
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 110--111
+Underfull \hbox (badness 10000) in paragraph at lines 132--133
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 112--113
+Underfull \hbox (badness 10000) in paragraph at lines 134--135
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 114--115
+Underfull \hbox (badness 10000) in paragraph at lines 136--137
 
  []
 
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+
+Underfull \hbox (badness 10000) in paragraph at lines 138--139
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 140--141
+
+ []
+
+[2] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang2.sty
 File: lstlang2.sty 2020/03/24 1.8d listings language file
 )
 LaTeX Font Info:    Trying to load font information for OML+cmr on input line 1
-40.
+66.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 140.
- [2]
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 166.
 LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 1
-43.
+69.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 143.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 169.
 
-Underfull \hbox (badness 10000) in paragraph at lines 159--161
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 162--163
+Underfull \hbox (badness 10000) in paragraph at lines 185--187
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 164--165
+Underfull \hbox (badness 10000) in paragraph at lines 188--189
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 181--182
+Underfull \hbox (badness 10000) in paragraph at lines 190--191
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 183--184
+Underfull \hbox (badness 10000) in paragraph at lines 207--208
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 187--188
+Underfull \hbox (badness 10000) in paragraph at lines 209--210
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 189--190
+Underfull \hbox (badness 10000) in paragraph at lines 213--214
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 192--193
+Underfull \hbox (badness 10000) in paragraph at lines 215--216
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 196--197
+Underfull \hbox (badness 10000) in paragraph at lines 218--219
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 198--199
+Underfull \hbox (badness 10000) in paragraph at lines 222--223
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 200--201
+Underfull \hbox (badness 10000) in paragraph at lines 224--225
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 202--203
+Underfull \hbox (badness 10000) in paragraph at lines 226--227
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 228--229
 
  []
 
@@ -951,27 +957,30 @@ LaTeX Info: Redefining \. on input line 5.
 LaTeX Info: Redefining \% on input line 5.
 ) ) 
 Here is how much of TeX's memory you used:
- 27855 strings out of 476091
- 644859 string characters out of 5794081
+ 27934 strings out of 477989
+ 646301 string characters out of 5839005
  1885330 words of memory out of 5000000
- 47871 multiletter control sequences out of 15000+600000
- 514888 words of font info for 41 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 102i,10n,104p,1614b,2215s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+ 47699 multiletter control sequences out of 15000+600000
+ 516865 words of font info for 48 fonts, out of 8000000 for 9000
+ 40 hyphenation exceptions out of 8191
+ 102i,11n,104p,1614b,1911s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ </home/edgar/.texlive2022/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.60
+0pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
 onts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.p
-fb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on ExamenParcial01.pdf (5 pages, 299281 bytes).
+fb>
+Output written on ExamenParcial01.pdf (5 pages, 318539 bytes).
 PDF statistics:
- 79 PDF objects out of 1000 (max. 8388607)
- 47 compressed objects within 1 object stream
+ 96 PDF objects out of 1000 (max. 8388607)
+ 56 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  23 words of extra memory for PDF output out of 10000 (max. 10000000)
 
