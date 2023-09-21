@@ -236,16 +236,54 @@
 
         En donde el primer constructor representa las variables del lenguaje, el segundo numeros naturales, el tercero aplicacion de funcion y el ultimo la definicion de funciones.
             \begin{itemize}
-                \item[a)] Traduce la gramatica anterior a una definicion inductiva con reglas de inferencia.
+                \item[a)] Traduce la gramatica anterior a una definicion inductiva con reglas de inferencia.\\
+                    $$
+                    \frac{}{x\hspace{0.1cm}Var}\hspace{0.5cm}\frac{n \in\hspace{0.1cm}Nat}{n\hspace{0.1cm}Exp}\hspace{0.5cm}\frac{e_1\hspace{0.1cm}Exp\hspace{1cm}e_2\hspace{0.1cm}Exp}{(e_1\hspace{0.1cm}e_2)\hspace{0.1cm}Exp}\hspace{0.5cm}\frac{x\hspace{0.1cm}Var\hspace{1cm}e\hspace{0.1cm}Exp}{(fun (x) \rightarrow e)\hspace{0.1cm}Exp}
+                    $$
+                
                 \item[b)] Disena una sintaxis abstracta apropiada para este lenguaje.
-                Hint: Primero observa si es necesario alguna especie de ligado como el que define el operador let visto en clase.
-                \item[c)] Escribe las reglas para la relacion de analisis sintactico $(\leftarrow\rightarrow)$ del lenguaje.
-                \item[d)] Disena un algoritmo de sustitucion para este lenguaje.
+                Hint: Primero observa si es necesario alguna especie de ligado como el que define el operador let visto en clase.\\
+
+                $$
+                \frac{}{var[x]}\hspace{0.5cm}\frac{n\hspace{0.1cm}\in Nat}{num[n]\hspace{0.1cm}asa}\hspace{0.5cm}\frac{e_1\hspace{0.1cm}asa\hspace{0.5cm}e_2\hspace{0.1cm}asa}{app(e_1,e_2)\hspace{0.1cm}asa}\hspace{0.5cm}\frac{x\hspace{0.1cm}Var\hspace{0.5cm}e\hspace{0.1cm}asa}{fun(x,x.e)\hspace{0.1cm}asa}
+                $$
+                
+                \item[c)] Escribe las reglas para la relacion de analisis sintactico $(\leftarrow\rightarrow)$ del lenguaje.\\
+
+                $$
+                \frac{}{x\hspace{0.1cm}Var\hspace{0.1cm}E\leftrightarrow\hspace{0.1cm}var[x]\hspace{0.1cm}asa}\hspace{0.5cm}\frac{n\hspace{0.1cm}\in Nat}{n\hspace{0.1cm}E\leftrightarrow\hspace{0.1cm}num[n]\hspace{0.1cm}asa}\hspace{0.5cm}\frac{e_1\hspace{0.1cm}E\leftrightarrow\hspace{0.1cm}a_1\hspace{0.1cm}asa\hspace{0.5cm}e_2\hspace{0.1cm}E\leftrightarrow\hspace{0.1cm}a_2\hspace{0.1cm}asa}{e_1\hspace{0.1cm}e_2\hspace{0.1cm}E\leftrightarrow\hspace{0.1cm}app(e_1,e_2)\hspace{0.1cm}asa}
+                $$
+                \\
+                $$            \frac{x\hspace{0.1cm}Var\hspace{0.1cm}E\leftrightarrow\hspace{0.1cm}var[x]\hspace{0.1cm}\hspace{0.5cm}e\hspace{0.1cm}E\leftrightarrow\hspace{0.1cm}a\hspace{0.1cm}asa}{fun (x) \rightarrow e \leftrightarrow fun(x,x.e)\hspace{0.1cm}asa}
+                $$
+                \item[d)] Disena un algoritmo de sustitucion para este lenguaje.\\
+
+                $x[x := e] = e$\\
+                $z[x := e] = z$\\
+                $num[n][x := e] = n$\\
+                $(e_1\hspace{0.1cm}e_2)[x := e] = (e_1[x := e]) (e_2[x := e])$\\
+                $fun(x, x.t)[x := e] = fun(x[x := e], x.e[x := e])$\\
+                $fun(x, a)[x := e] = fun(x[x := e], a[x := e])$\\
+                $(z.a)[x := e] = z.(a[x := e])$, Si $x \neq z$ y $z \notin FV(e)$\\
+                $(z.a)[x := e] = indefinido$, Si $z \in FV(e)$\\
                 \item[e)] La relacion de $\alpha$-equivalencia en este lenguaje se da respecto al operador de definicion de funcion fun, se dice que dos expresiones son $\alpha$-equivalentes si solo difieren en el nombre de la variable del parametro de la funcion. Por ejemplo:
                 \begin{center}
                     $fun (x) \rightarrow x \equiv\alpha fun (y) \rightarrow y$
                 \end{center}
-        Demuestra que $\equiv\alpha$ es una relacion de equivalencia.
+        Demuestra que $\equiv\alpha$ es una relacion de equivalencia.\\
+
+        Para poder ver que $\equiv\alpha$ una relacion de equivalencia, debemos demostrar que es:\\
+
+        Reflexiva:\\
+        Notemos que para cualquier expresión $e$, $e$ $\equiv\alpha$ $e$, es decir que una expresión es $\alpha$-equivalente a sí misma.\\
+
+        Simetría:\\
+        Si una expresión $e_1$ $\equiv\alpha$ $e_2$, entonces $e_2$ $\equiv\alpha$ $e_1$, es decir que si dos expresiones son $\alpha$-equivalentes en un sentido, también lo son en el otro.\\
+
+        Transitiva:\\
+        Si una expresión $e_1$ $\equiv\alpha$ $e_2$ y tenemos otra expresión $e_2$ $\equiv\alpha$ $e_3$ siendo $e_3$ una expresión, entonces tenemos que $e_1$ $\equiv\alpha$ $e_3$. Esto significa que si dos expresiones son $\alpha$-equivalentes, y una de ellas es $\alpha$-equivalente a una tercera expresión, entonces las dos primeras también son $\alpha$-equivalentes.\\
+
+        Por lo tanto $\equiv\alpha$ es una relación de equivalencia.\\
             \end{itemize}
         \item[5.] Juanito Alimana quiere definir un lenguaje que le permita controlar un robot con movimientos y funcionalidades muy simples. El robot se mueve sobre una cuadricula siguiendo las instrucciones especificadas por el programa. Al inicio el robot se encuentra en a coordenada (0, 0) y viendo hacia el norte. El programa consiste en una secuencia posiblemente vacıa de los comandos move y turn separados por punto y coma, cada comando tiene el siguiente funcionamiento:
             \begin{itemize}
