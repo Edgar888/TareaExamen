@@ -316,6 +316,29 @@
                     
                     \item[c)] Define la funcion de transicion $\rightarrow$R que indique como se debe transitar entre los estados del sistema. De tal forma que defina una semantica operacional de paso pequeno.\\
 
+                    Las transiciones que hara el robot, para que pueda realizar la acciones de "turn" y "move" son las siguientes:\\
+                    
+                    Cuando tenemos el comando "move" hacemos lo siguiente :\\
+                    
+                    Si estamos en el Norte, se hace:\\
+                    (x, y, Norte) $\rightarrow$R(x, y + 1, Norte)\\
+                    Si estamos en el Sur, se hace:\\
+                    (x, y, Sur) $\rightarrow$R(x, y − 1, Sur)\\
+                    Si estamos en el Este, se hace:\\
+                    (x, y, Este) $\rightarrow$R(x + 1, y, Este)\\
+                    Si estamos en el Oeste, se hace:\\
+                    (x, y, Oeste) $\rightarrow$R(x − 1, y, Oeste)\\
+
+                    Cuando se lee el comando "turn" hacemos lo siguiente:\\
+
+                    Si estamos en el Norte gira de 90 grados en el sentido de las manecillas del reloj:\\
+                    (norte) $\rightarrow$ R(este)\\
+                    Si estamos en el Este gira de 90 grados en el sentido de las manecillas del reloj:\\
+                    (este) $\rightarrow$ R(sur)\\
+                    Si estamos en el Sur gira de 90 grados en el sentido de las manecillas del reloj:\\
+                    (sur) $\rightarrow$ R(oeste)\\
+                    Si estamos en el Oeste gira de 90 grados en el sentido de las manecillas del reloj:\\
+                    (oeste) $\rightarrow$R(norte)\\
                     
                     \item[d)] Muestra paso a paso la ejecucion del programa\\
                     
@@ -324,6 +347,8 @@
                     move;turn;move;turn;turn;turn;move
                 \end{center}
             usando la relacion $\rightarrow$R y partiendo del estado inicial correspondiente.\\
+
+            Dadas las transiciones dle inciso c) tenemos lo siguiente:\\
 
             1.-Nos encontramos en l posición (0, 0, Norte) al ejecutar "move" tenemos:\\
             (0, 0, Norte)$\rightarrow$R (0,1, Norte).\\
