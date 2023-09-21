@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2023.8.27)  20 SEP 2023 16:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2023.8.27)  21 SEP 2023 00:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -870,6 +870,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 140--141
 
  []
 
+
+Overfull \hbox (18.68173pt too wide) in paragraph at lines 165--166
+[]$\OML/cmm/m/it/10 PF \OT1/cmr/m/n/10 ::=[] +[]\OML/cmm/m/it/10 UInt[]:[]UInt[
+]e[] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 UInt \OMS/cmsy/m/n/10 j ^^@ \OML/cmm
+/m/it/10 UInt[]:[]UInt[]e[] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 UInt \OMS/cms
+y/m/n/10 j\OML/cmm/m/it/10 UInt[]:[]UInt[]e[] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/i
+t/10 UInt \OMS/cmsy/m/n/10 j[] \OT1/cmr/m/n/10 +[] \OML/cmm/m/it/10 UInt[]:[]UI
+nt[]e[]UInt \OMS/cmsy/m/n/10 j ^^@
+ []
+
 [2] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
@@ -877,89 +887,149 @@ File: lstlang1.sty 2020/03/24 1.8d listings language file
 File: lstlang2.sty 2020/03/24 1.8d listings language file
 )
 LaTeX Font Info:    Trying to load font information for OML+cmr on input line 1
-66.
+95.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 166.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 195.
 LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 1
-69.
+98.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 169.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 198.
 
-Underfull \hbox (badness 10000) in paragraph at lines 185--187
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 188--189
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 190--191
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 207--208
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 209--210
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 213--214
+Underfull \hbox (badness 10000) in paragraph at lines 214--216
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 215--216
+Underfull \hbox (badness 10000) in paragraph at lines 217--218
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 218--219
+Underfull \hbox (badness 10000) in paragraph at lines 219--220
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 222--223
+Underfull \hbox (badness 10000) in paragraph at lines 236--237
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 224--225
+Underfull \hbox (badness 10000) in paragraph at lines 238--239
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 226--227
+Underfull \hbox (badness 10000) in paragraph at lines 242--243
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 228--229
+Underfull \hbox (badness 10000) in paragraph at lines 244--245
 
  []
 
-[4] [5] (./ExamenParcial01.aux
+
+Underfull \hbox (badness 10000) in paragraph at lines 247--248
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 251--252
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 253--254
+
+ []
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 255--256
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 257--258
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 268--269
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 273--275
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 280--281
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 284--286
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 288--289
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 290--298
+
+ []
+
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 302--303
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 304--305
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 306--308
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 309--311
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 312--314
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 315--316
+
+ []
+
+[6] [7] (./ExamenParcial01.aux
 LaTeX Info: Redefining \. on input line 5.
 LaTeX Info: Redefining \% on input line 5.
 ) ) 
 Here is how much of TeX's memory you used:
  27934 strings out of 477989
  646301 string characters out of 5839005
- 1885330 words of memory out of 5000000
+ 1878330 words of memory out of 5000000
  47699 multiletter control sequences out of 15000+600000
  516865 words of font info for 48 fonts, out of 8000000 for 9000
  40 hyphenation exceptions out of 8191
@@ -976,11 +1046,11 @@ pe1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
 onts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.p
-fb>
-Output written on ExamenParcial01.pdf (5 pages, 318539 bytes).
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on ExamenParcial01.pdf (7 pages, 335159 bytes).
 PDF statistics:
- 96 PDF objects out of 1000 (max. 8388607)
- 56 compressed objects within 1 object stream
+ 109 PDF objects out of 1000 (max. 8388607)
+ 65 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  23 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -149,7 +149,36 @@
         donde s, r son enteros signados y u es un entero no signado.
             \begin{itemize}
                 \item[a)] Defina un juicio pfloat que genere a las expresiones flotantes de Pascal. Observe que debe tambien definir juicios para enteros signados y no signados.
+                Teniendo la siginete gramatica
+                \begin{center}
+                    \begin{itemize}
+                        \item[ ] $PF ::= SI '.' UI 'e' SI$
+                        \item[ ] $SI ::= '+' UInt | '-' UInt | UInt$
+                        \item[ ] $UInt ::= Nu | Nu UInt$
+                        \item[ ] $Nu ::= '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'$
+                    \end{itemize}
+                \end{center}
+
+                En forma norlmal de Chomsky
+                \begin{center}
+                    \begin{itemize}
+                        \item[ ] $PF ::= '+' UInt '.' UInt 'e' - UInt \,| - UInt '.' UInt 'e' - UInt \,| UInt '.' UInt 'e' - UInt \,| '+' UInt '.' UInt 'e' UInt \,| - UInt '.' UInt 'e' UInt \,| UInt '.' UInt 'e' UInt$
+                        \item[ ] $SI ::= '+' UInt \,| '-' UInt \,| UInt$
+                        \item[ ] $UInt ::= Nu \,| Nu UInt$
+                        \item[ ] $Nu ::= '0' \,| '1' \,| '2' \,| '3' \,| '4' \,| '5' \,| '6' \,| '7' \,| '8' \,| '9'$
+                    \end{itemize}
+                \end{center}
+
                 \item[b)] Utilice su definicion para dar una derivacion de $+9.67$e$-15$.
+                \begin{itemize}
+                    \item[ ] PF ::= '+' UInt '.' UInt 'e' '-' UInt
+                    \item[ ] PF ::= '+' UInt '.' UInt 'e' '-' UInt   (Utilizamos la producción PascalFloat)
+                    \item[ ] '+' UInt '.' UInt 'e' '-' UInt   (Elegimos la rama de la producción PascalFloat)
+                    \item[ ] '+' '9' '.' UInt 'e' '-' UInt    (Elegimos UnsignedInt  '9')
+                    \item[ ] '+' '9' '.' '67' 'e' '-' UInt    (Elegimos UnsignedInt  '67')
+                    \item[ ] '+' '9' '.' '67' 'e' '-' '15'    (Elegimos UnsignedInt  '15')
+                \end{itemize}
+                La derivación muestra cómo la expresión `+9.67e-15` se deriva utilizando la gramática en forma normal de Chomsky.
             \end{itemize}
         Sugerencia: siempre es util definir primero una gramatica libre de contexto adecuada y transformarla en el juicio deseado.
 
