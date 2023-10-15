@@ -83,13 +83,138 @@
         \end{center}
         Responde a los siguientes incisos:\\
         \begin{itemize}
-            \item[a)] Con la gramática anterior se pueden construir programas que no pertenecen al lenguaje como $+1 2$ o $1 + 2$. Para tratar con esto Chon Hacker te pide definir mediante reglas de inferencia una semántica estática que verifique que la expresión es correcta según la definición de la notación polaca. Para esto se define el juicio e correct que indica que la expresión e está correctamente en notación polaca.
-            \item[b)] Usando la definición del inciso anterior verifica que $1 2 4 3 + * -$ correct
-            \item[c)] Define una semántica operacional de paso grande para este lenguaje calculador mediante la relación $\Downarrow$ que evalúa los programas del lenguaje. Puede ser de ayuda leer el programa de derecha a izquierda.
-            \item[d)] Define una semántica operacional de paso pequeño con estados de la forma $s \models e$ en donde s es la pila que almacena los símbolos (la pila vacía se denota como $\circ)$ y e es la expresión del lenguaje. Para esto indica claramente cuáles son los estados iniciales y finales y define la relación de transición $\rightarrow$rpn que modela la evaluación del programa.
+            \item[a)] Con la gramática anterior se pueden construir programas que no pertenecen al lenguaje como $+1 2$ o $1 + 2$. Para tratar con esto Chon Hacker te pide definir mediante reglas de inferencia una semántica estática que verifique que la expresión es correcta según la definición de la notación polaca. Para esto se define el juicio e correct que indica que la expresión e está correctamente en notación polaca.\\
+
+            Definimos el juicio \textit{\textbf{e}} \textbf{correct} que indica que la expresión \textit{\textbf{e}} está correctamente en notación polaca, en seguida tenemos nustras reglas de inferencia:\\
+
+            1.-Si \textit{\textbf{e}} es un número, entonces:
+
+            \begin{center}
+                \Large{$\frac{}{n\hspace{0.2cm}\textbf{correct}}$}
+            \end{center}
+
+            2.-Si \textit{\textbf{e}} es de la forma \textit{\textbf{$e_1$}} \textit{\textbf{$e_2$}} op, donde \textit{\textbf{$e_1$}} \textbf{correct} y \textit{\textbf{$e_2$}} \textbf{correct}, y op es un operador ($+$, $-$, $*$), entonces:\\
+
+            $$
+            \frac{e_1\hspace{0.1cm}\textbf{correct}\hspace{1cm}e_2\hspace{0.1cm}\textbf{correct}}{+\hspace{0.1cm}\textbf{correct}}\hspace{0.5cm}\frac{e_1\hspace{0.1cm}\textbf{correct}\hspace{1cm}e_2\hspace{0.1cm}\textbf{correct}}{*\hspace{0.1cm}\textbf{correct}}\hspace{0.5cm}\frac{e_1\hspace{0.1cm}\textbf{correct}\hspace{1cm}e_2\hspace{0.1cm}\textbf{correct}}{-\hspace{0.1cm}\textbf{correct}}
+            $$
+
+            3.- Si \textit{\textbf{e}} = $\epsilon$ (cadena vacía), entonces \textit{\textbf{e}} es correcta\\
+
+            \begin{center}
+                \Large{$\frac{}{\epsilon\hspace{0.1cm} \textbf{correct}}$}
+            \end{center}
+            
+            \item[b)] Usando la definición del inciso anterior verifica que $1 2 4 3 + * -$ correct\\
+
+            1 correct (según la Regla 1).\\
+            2 correct (según la Regla 1).\\
+            4 correct (según la Regla 1).\\
+            3 correct (según la Regla 1).\\
+            4 3 + correct (según la Regla 2, ya que 4 y 3 son correctos).\\
+            2 4 3 + * correct (según la Regla 2, ya que 2 y 4 3 + son correctos).\\
+            1 2 4 3 + * - correct (según la Regla 2, ya que 1 y 2 4 3 + * son correctos).\\
+
+            Por lo tanto la expresión ''1 2 4 3 + * -'' cumple con todas las reglas de inferencia y, entonces, es considerada correcta según la definición del juicio ''e correct''.\\
+            
+            \item[c)] Define una semántica operacional de paso grande para este lenguaje calculador mediante la relación $\Downarrow$ que evalúa los programas del lenguaje. Puede ser de ayuda leer el programa de derecha a izquierda.\\
+
+            Nuestra sematica operacional de paso grande es la sigueinte:\\
+
+            Regla para números: Un número se evalúa a sí mismo
+            \begin{center}
+                \Large{$\frac{}{n\hspace{0.1cm}\Downarrow\hspace{0.1cm}n}$}
+            \end{center}
+            
+            Regla para operadores (op) y expresiones (sym rpn) con operadores:\\
+            Si tenemos una expresión que es una operación con dos operandos (números) y un operador, entonces se evalúa de la siguiente forma:
+
+            \begin{center}
+                \Large{$\frac{sym\hspace{0.1cm}rpn\hspace{0.1cm}\Downarrow\hspace{0.1cm}n_2\hspace{0.3cm}sym\hspace{0.1cm}\Downarrow\hspace{0.1cm}n_1\hspace{0.3cm}op(sym,n_1,n_2) = n}{sym\hspace{0.1cm}rpn\hspace{0.1cm}\Downarrow\hspace{0.1cm}n}$}
+            \end{center}
+
+            Donde:\\
+            \begin{itemize}
+                \item $sym$ es el operador
+
+                \item $rpn$ es el resto de la expresión
+
+                \item $n_1$ es el resultado de evaluar el primer operando
+
+                \item $n_2$ es el resultado de evaluar el segundo operando
+
+                \item $op(sym,n_1,n_2)$ es una función que toma el operador $sym$, el primer operando $n_1$ y el segundo operando $n_2$ y devuelve el resultado de la operación.
+            \end{itemize}
+            
+            Regla para espresiones vacía($\epsilon$):Una expresión vacía no tiene valor\\
+
+            \begin{center}
+                \Large{$\frac{}{\epsilon\hspace{0.1cm}\Downarrow\hspace{0.1cm}error}$}
+            \end{center}
+            
+            \item[d)] Define una semántica operacional de paso pequeño con estados de la forma $s \models e$ en donde s es la pila que almacena los símbolos (la pila vacía se denota como $\circ)$ y e es la expresión del lenguaje. Para esto indica claramente cuáles son los estados iniciales y finales y define la relación de transición $\rightarrow_{rpn}$ que modela la evaluación del programa.\\
+
+            Estados iniciales y finales:\\
+
+            \begin{itemize}
+                \item Los estados iniciales se representan cuando la pila $s$ está vacía ($\circ$) y la expresión $e$ es la expresión completa que se desea evaluar.Inicialmente, la pila está vacía.
+
+                \item Los estados finales se representan cuando la pila $s$ contiene un solo valor numérico y la expresión $e$ está vacía ($\epsilon$), lo que significa que la evaluación ha concluido y el valor resultante se encuentra en la cima de la pila.\\
+            \end{itemize}
+
+            Ahora, definamos las reglas de transición para la relación $\rightarrow_{rpn}$.\\
+
+            \begin{enumerate}
+                \item Regla para números:\\
+                $$s\hspace{0.1cm}\models\hspace{0.1cm}n\hspace{0.1cm}\rightarrow_{rpn}\hspace{0.1cm}s\hspace{0.1cm}\models\hspace{0.1cm}n$$
+
+                Cuando el siguiente símbolo en la expresión es un número, se coloca en la pila de símbolos y se quita de la expresión.\\
+
+                \item Regla para operadores ($+,-,*$):\\
+
+                $$n_1\hspace{0.1cm}n_2\hspace{0.1cm}s\hspace{0.1cm}\models\hspace{0.1cm}op\hspace{0.1cm}e\hspace{0.1cm}\rightarrow_{rpn}\hspace{0.1cm}(n_1\hspace{0.1cm}op\hspace{0.1cm}n_2)\hspace{0.1cm}s\hspace{0.1cm}\models\hspace{0.1cm}e$$
+
+                Cuando el siguiente símbolo en la expresión es un operador, se toman los dos números superiores en la pila y se realiza la operación $op$ con ellos. El resultado se coloca de nuevo en la pila, y el operador se quita de la expresión.\\
+
+                \item Regla para espreciones vacías($\epsilon$):\\
+
+                $$n\hspace{0.1cm}s\hspace{0.1cm}\models\hspace{0.1cm}\epsilon\hspace{0.1cm}\rightarrow_{rpn}\hspace{0.1cm}n\hspace{0.1cm}s\hspace{0.1cm}\models\hspace{0.1cm}\epsilon$$
+                
+                Cuando la expresión está vacía, la evaluación ha terminado. El resultado es el número nn, y la expresión sigue vacía.\\
+            \end{enumerate}
+            
             \item[e)] Prueba que las semánticas definidas en los incisos anteriores son equivalentes, para esto:\\
 
-            Demuestra que para cualquier expresión correcta e del lenguaje, si e $\Downarrow$ v entonces $\circ$ $\models$ e $\rightarrow$ $*$ rpn $\circ$ $\models$  v.
+            \begin{enumerate}
+                \item Demuestra que para cualquier expresión correcta e del lenguaje, si $e$ $\Downarrow$ $v$ entonces $\circ$ $\models$ $e$ $\rightarrow^{*}_{rpn}$ $\circ$ $\models$  $v$.\\
+
+                \item Prueba que para cualquier expresión correcta $e$ del lenguajes $\circ$ $\models$ $e$ $\rightarrow^{*}_{rpn}$ $\circ$ $\models$  $v$ de tal forma que $\circ$ $\models$ $v$ es final, entonces $e$ $\Downarrow$ $v$.
+            \end{enumerate}
+
+            1.-Vamos a demostrar por induccion en la evaluación de paso grande:\\
+
+            \textbf{Caso Base}: Para una expresión atómica $n$ si $e$ = $n$, entonces en la semantica de paso pequeño, $\circ$ $\models$ $n$ $\rightarrow_{rpn}$ $\circ$ $\models$ $n$ (por la regla de número).Esto es consistente con la evaluación de paso grande $n\hspace{0.1cm}\Downarrow\hspace{0.1cm}n$\\
+
+            \textbf{Hipótesis de Inducción(H.I.)}:Supongamos que para cualquier expresión $e_1$ tal que $e_1$ $\Downarrow$ $v_1$, se cumple que $\circ$ $\models$ $e_1$ $\rightarrow^{*}_{rpn}$ $\circ$ $\models$  $v_1$.\\
+
+            \textbf{Paso Inductivo}: Consideremos una expresión $e$ de la forma $sym$ $e_1$ $rpn$, donde $e_1$ $\Downarrow$ $v_1$ y $sym$ es un operador. Por la evaluación de paso grande, tenemos $e$ $\Downarrow$ $v$, y por la regla de operador, $v$ = $op(sym,v_1,v_2)$, donde $v_2$ es el resultado de evaluar $rpn$.\\
+            Por \textbf{H.I.} $\circ$ $\models$ $e_1$ $\rightarrow^{*}_{rpn}$ $\circ$ $\models$  $v_1$, y dado que las reglas de paso pequeño son deterministas, la evaluación de $rpn$ desde $\circ$ $\models$ $e_1$ tambien conduce a $\circ$ $\models$ $v_1$. Entonces, tenemos $\circ$ $\models$ $sym$ $e_1$ $rpn$ $\rightarrow^{*}_{rpn}$ $\circ$ $op(sym,v_1,v_2)$ = $\circ$ $\models$ $v$.\\
+
+            Por lo tanto, se demostró que si $e$ $\Downarrow$ $v$ entonces $\circ$ $\models$ $e$ $\rightarrow^{*}_{rpn}$ $\circ$ $\models$  $v$.\\
+
+
+            2.-Vamos a demostrar por inducción en el número de pasos en la evaluación de paso pequeño $\circ$ $\models$ $e$ $\rightarrow^{*}_{rpn}$ $\circ$ $\models$ $v$:\\
+
+            \textbf{Caso Base}: Si la evaluación se completa en un solo paso, significa que $e$ es una expresión atómica $n$ y $v$ = $n$ Esto es consistente con la evaluación de paso grande $n\hspace{0.1cm}\Downarrow\hspace{0.1cm}n$.\\
+
+            \textbf{Hipótesis de Inducción(H.I.)}: Supongamos que después de $k$ pasos, $\circ$ $\models$ $e$ $\rightarrow^{*}_{rpn}$ $\circ$ $\models$  $v$ y $\circ$ $\models$ $v$ es un estado final.\\
+
+            \textbf{Paso Inductivo}: Consideremos el paso $k+1$ en a evalución. Tenemos $\circ$ $\models$ $e$ $\rightarrow^{*}_{rpn}$ $\circ$ $\models$  $v$ y $\circ$ $\models$ $v$ en $k+1$ pasos, lo que implica que $\circ$ $\models$ $e$ $\rightarrow^{*}_{rpn}$ $\circ^{'}$ $\models$ $v^{'}$ en $k$ pasos, donde $v^{'}$ es el estado después del paso $k+1$. Dado que $\circ$ $\models$ $v$ es final, esto significa que no hay más pasos para $v^{'}$, lo que implica que $v$ = $v^{'}$.\\
+            Por \textbf{H.I.}, si $\circ^{'}$ $\models$ $v^{'}$ = $\circ$ $\models$ $v$, entonces $e$ $\Downarrow$ $v$.\\
+
+            Por lo tanto, se demostró que si $\circ$ $\models$ $e$ $\rightarrow^{*}_{rpn}$ $\circ$ $\models$ $v$ y $\circ$ $\models$ $v$ es final, entonces $e$ $\Downarrow$ $v$.\\
+
+            Entonces podemos decir que las semánticas definidas en los incisos anteriores son \textbf{equivalentes}.\\ 
         \end{itemize}
     \end{itemize}
 \end{document}
