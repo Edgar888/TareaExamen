@@ -482,6 +482,54 @@
 
         \begin{enumerate}
             \item Diseña una semántica estática para el lenguaje que defina un sistema de tipos para los naturales con los tipos ${\sf Even}$ y ${\sf Odd}$, estos tipos nos indican si una expresión $n$ del lenguaje define un número natural par o impar.
+            Definimos dos tipos: ${\sf Even}$ para números naturales pares y ${\sf Odd}$ para números naturales impares. Las reglas de tipado son las siguientes:
+
+            \begin{enumerate}
+                \item Para el número natural cero ($0$), asignamos el tipo ${\sf Even}$.
+                \[
+                \begin{array}{c}
+                    \frac{}{0 : {\sf Even}}
+                \end{array}
+                \]
+                \item Para una expresión $(s\;n)$, donde $n$ es de tipo ${\sf Even}$, asignamos el tipo ${\sf Odd}$.
+                \[
+                \begin{array}{c}
+                    \frac{n : {\sf Even}}{(s\;n) : {\sf Odd}}
+                \end{array}
+                \]
+
+                \item Para una expresión $(s\;n)$, donde $n$ es de tipo ${\sf Odd}$, asignamos el tipo ${\sf Even}$.
+                \[
+                \begin{array}{c}
+                    \frac{n : {\sf Odd}}{(s\;n) : {\sf Even}}
+                \end{array}
+                \]
+
+                \item Para una expresión $(p\;n)$, donde $n$ es de tipo ${\sf Even}$, asignamos el tipo ${\sf Odd}$.
+                \[
+                \begin{array}{c}
+                    \frac{n : {\sf Even}}{(p\;n) : {\sf Odd}}
+                \end{array}
+                \]
+
+                \item Para una expresión $(p\;n)$, donde $n$ es de tipo ${\sf Odd}$, asignamos el tipo ${\sf Even}$.
+                \[
+                \begin{array}{c}
+                    \frac{n : {\sf Odd}}{(p\;n) : {\sf Even}}
+                \end{array}
+                \]
+            \end{enumerate}
+
+            Estas reglas de tipado establecen las condiciones bajo las cuales una expresión se considera de tipo ${\sf Even}$ o ${\sf Odd}$. En resumen:
+
+            \begin{itemize}
+                \item El número natural cero es de tipo ${\sf Even}$.
+                \item Si tomamos el sucesor de un número de tipo ${\sf Even}$, el resultado es de tipo ${\sf Odd}$.
+                \item Si tomamos el sucesor de un número de tipo ${\sf Odd}$, el resultado es de tipo ${\sf Even}$.
+                \item Si tomamos el predecesor de un número de tipo ${\sf Even}$, el resultado es de tipo ${\sf Odd}$.
+                \item Si tomamos el predecesor de un número de tipo ${\sf Odd}$, el resultado es de tipo ${\sf Even}$.
+            \end{itemize}
+
             \item Con la semántica definida en el inciso anterior y la semántica operacional dada en el ejercicio, indica si el lenguaje cumple con ser seguro, es decir, si cumple las propiedades de: {\it unicidad}, {\it preservación} y ${\it progreso}$. No es necesario dar una demostración formal de las propiedades sino una justificación del por qué se cumplen o no cada una de estas propiedades.
         \end{enumerate}
     \end{enumerate}
