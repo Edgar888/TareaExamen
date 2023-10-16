@@ -481,53 +481,53 @@
         \]
 
         \begin{enumerate}
-            \item Diseña una semántica estática para el lenguaje que defina un sistema de tipos para los naturales con los tipos ${\sf Even}$ y ${\sf Odd}$, estos tipos nos indican si una expresión $n$ del lenguaje define un número natural par o impar.
-            Definimos dos tipos: ${\sf Even}$ para números naturales pares y ${\sf Odd}$ para números naturales impares. Las reglas de tipado son las siguientes:
+            \item Diseña una semántica estática para el lenguaje que defina un sistema de tipos para los naturales con los tipos ${\sf Par}$ y ${\sf Odd}$, estos tipos nos indican si una expresión $n$ del lenguaje define un número natural par o impar.
+            Definimos dos tipos: ${\sf Par}$ para números naturales pares y ${\sf Odd}$ para números naturales impares. Las reglas de tipado son las siguientes:
 
             \begin{enumerate}
-                \item Para el número natural cero ($0$), asignamos el tipo ${\sf Even}$.
+                \item Para el número natural cero ($0$), asignamos el tipo ${\sf Par}$.
                 \[
                 \begin{array}{c}
-                    \frac{}{0 : {\sf Even}}
+                    \frac{}{0 : {\sf Par}}
                 \end{array}
                 \]
-                \item Para una expresión $(s\;n)$, donde $n$ es de tipo ${\sf Even}$, asignamos el tipo ${\sf Odd}$.
+                \item Para una expresión $(s\;n)$, donde $n$ es de tipo ${\sf Par}$, asignamos el tipo ${\sf Impar}$.
                 \[
                 \begin{array}{c}
-                    \frac{n : {\sf Even}}{(s\;n) : {\sf Odd}}
-                \end{array}
-                \]
-
-                \item Para una expresión $(s\;n)$, donde $n$ es de tipo ${\sf Odd}$, asignamos el tipo ${\sf Even}$.
-                \[
-                \begin{array}{c}
-                    \frac{n : {\sf Odd}}{(s\;n) : {\sf Even}}
+                    \frac{n : {\sf Par}}{(s\;n) : {\sf Impar}}
                 \end{array}
                 \]
 
-                \item Para una expresión $(p\;n)$, donde $n$ es de tipo ${\sf Even}$, asignamos el tipo ${\sf Odd}$.
+                \item Para una expresión $(s\;n)$, donde $n$ es de tipo ${\sf Impar}$, asignamos el tipo ${\sf Par}$.
                 \[
                 \begin{array}{c}
-                    \frac{n : {\sf Even}}{(p\;n) : {\sf Odd}}
+                    \frac{n : {\sf Impar}}{(s\;n) : {\sf Par}}
                 \end{array}
                 \]
 
-                \item Para una expresión $(p\;n)$, donde $n$ es de tipo ${\sf Odd}$, asignamos el tipo ${\sf Even}$.
+                \item Para una expresión $(p\;n)$, donde $n$ es de tipo ${\sf Par}$, asignamos el tipo ${\sf Impar}$.
                 \[
                 \begin{array}{c}
-                    \frac{n : {\sf Odd}}{(p\;n) : {\sf Even}}
+                    \frac{n : {\sf Par}}{(p\;n) : {\sf Impar}}
+                \end{array}
+                \]
+
+                \item Para una expresión $(p\;n)$, donde $n$ es de tipo ${\sf Impar}$, asignamos el tipo ${\sf Par}$.
+                \[
+                \begin{array}{c}
+                    \frac{n : {\sf Impar}}{(p\;n) : {\sf Par}}
                 \end{array}
                 \]
             \end{enumerate}
 
-            Estas reglas de tipado establecen las condiciones bajo las cuales una expresión se considera de tipo ${\sf Even}$ o ${\sf Odd}$. En resumen:
+            Estas reglas de tipado establecen las condiciones bajo las cuales una expresión se considera de tipo ${\sf Par}$ o ${\sf Impar}$. En resumen:
 
             \begin{itemize}
-                \item El número natural cero es de tipo ${\sf Even}$.
-                \item Si tomamos el sucesor de un número de tipo ${\sf Even}$, el resultado es de tipo ${\sf Odd}$.
-                \item Si tomamos el sucesor de un número de tipo ${\sf Odd}$, el resultado es de tipo ${\sf Even}$.
-                \item Si tomamos el predecesor de un número de tipo ${\sf Even}$, el resultado es de tipo ${\sf Odd}$.
-                \item Si tomamos el predecesor de un número de tipo ${\sf Odd}$, el resultado es de tipo ${\sf Even}$.
+                \item El número natural cero es de tipo ${\sf Par}$.
+                \item Si tomamos el sucesor de un número de tipo ${\sf Par}$, el resultado es de tipo ${\sf Impar}$.
+                \item Si tomamos el sucesor de un número de tipo ${\sf Impar}$, el resultado es de tipo ${\sf Par}$.
+                \item Si tomamos el predecesor de un número de tipo ${\sf Par}$, el resultado es de tipo ${\sf Impar}$.
+                \item Si tomamos el predecesor de un número de tipo ${\sf Impar}$, el resultado es de tipo ${\sf Par}$.
             \end{itemize}
 
             \item Con la semántica definida en el inciso anterior y la semántica operacional dada en el ejercicio, indica si el lenguaje cumple con ser seguro, es decir, si cumple las propiedades de: {\it unicidad}, {\it preservación} y ${\it progreso}$. No es necesario dar una demostración formal de las propiedades sino una justificación del por qué se cumplen o no cada una de estas propiedades.\\
@@ -537,14 +537,14 @@
             \begin{enumerate}
                 \item \textbf{Unicidad (Unicity):} En un lenguaje seguro, para cada expresión bien tipada, existe una única forma de reducirla o evaluarla.
                 \begin{itemize}
-                    \item[-] En este lenguaje, las reglas de tipado nos permiten asignar tipos ${\sf Even}$ o ${\sf Odd}$ a las expresiones, lo que significa que cada expresión bien tipada tiene un tipo único asignado de acuerdo a las reglas estáticas.
-                    \item[-] Las reglas de semántica operacional también definen de manera única cómo las expresiones se reducen o evalúan. Por ejemplo, las reglas para el sucesor $(s\;n)$ establecen claramente cómo se reduce: si $n$ es de tipo ${\sf Even}$, se convierte en ${\sf Odd}$ y viceversa. Las reglas para el predecesor $(p\;n)$ también son únicas y deterministas.
+                    \item[-] En este lenguaje, las reglas de tipado nos permiten asignar tipos ${\sf Par}$ o ${\sf Impar}$ a las expresiones, lo que significa que cada expresión bien tipada tiene un tipo único asignado de acuerdo a las reglas estáticas.
+                    \item[-] Las reglas de semántica operacional también definen de manera única cómo las expresiones se reducen o evalúan. Por ejemplo, las reglas para el sucesor $(s\;n)$ establecen claramente cómo se reduce: si $n$ es de tipo ${\sf Par}$, se convierte en ${\sf Impar}$ y viceversa. Las reglas para el predecesor $(p\;n)$ también son únicas y deterministas.
                 \end{itemize}
                 Por lo tanto el lenguaje cumple con la propiedad de unicidad.
 
                 \item \textbf{Preservación (Preservation):} En un lenguaje seguro, si una expresión tiene un tipo en un paso de reducción, entonces la expresión resultante también tiene ese tipo.
                 \begin{itemize}
-                    \item[-] Las reglas de tipado están diseñadas para garantizar que la asignación de tipos se preserve durante la reducción. Por ejemplo, si una expresión tiene el tipo ${\sf Even}$ y se reduce según la regla de sucesor, el resultado tendrá el tipo ${\sf Odd}$, lo que demuestra que el tipo se preserva durante la reducción.
+                    \item[-] Las reglas de tipado están diseñadas para garantizar que la asignación de tipos se preserve durante la reducción. Por ejemplo, si una expresión tiene el tipo ${\sf Par}$ y se reduce según la regla de sucesor, el resultado tendrá el tipo ${\sf Impar}$, lo que demuestra que el tipo se preserva durante la reducción.
 
                     \item[-] Las reglas de semántica operacional también se diseñan para preservar los tipos asignados. Por ejemplo, la regla para el predecesor $(p\;(s\;n))$ establece que se reduce a $n$ y, por lo tanto, el tipo se preserva.
                 \end{itemize}
