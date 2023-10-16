@@ -241,7 +241,88 @@
             \item Defina la función test de cero $Z$  y verifique con su definición que $Z\,\widehat{n+1}\to^\star false$ y que $Z\,\widehat{0}\to^\star true$
         \end{enumerate}
 
-        \item Defina utilizando combinadores de punto fijo la función {\tt reverse} que encuentre la reversa de una lista. Utilice su definición para mostrar que $${\tt reverse}\,\, ({\tt cons}\,\, 3\,\, ({\tt cons}\,\, 2\,\, ({\tt cons}\,\, 1\,\, {\tt nil}))) \to^\star_\beta ({\tt cons}\,\, 1\,\, ({\tt cons}\,\, 2\,\, ({\tt cons}\,\, 3\,\, {\tt nil}))).$$ Puede suponer definidas y correctas todas las funciones de listas que requiera, salvo {\tt reverse} por supuesto.
+        \item Defina utilizando combinadores de punto fijo la función {\tt reverse} que encuentre la reversa de una lista. Utilice su definición para mostrar que $${\tt reverse}\,\, ({\tt cons}\,\, 3\,\, ({\tt cons}\,\, 2\,\, ({\tt cons}\,\, 1\,\, {\tt nil}))) \to^\star_\beta ({\tt cons}\,\, 1\,\, ({\tt cons}\,\, 2\,\, ({\tt cons}\,\, 3\,\, {\tt nil}))).$$ Puede suponer definidas y correctas todas las funciones de listas que requiera, salvo {\tt reverse} por supuesto.\\
+
+        Primero recordemos que es un punto fijo: Un lambda término cerrado \textit{F} es un combinador de punto fijo sí y sólo si cumple alguna de las siguientes condiciones:
+
+        \begin{enumerate}
+            \item[1.] \textit{F g $\to^\star_\beta$ g (F g)}
+            \item[2.] \textit{F g $\equiv_\beta$}, es decir, existe un término $t$ tal que \textit{F g $\to^\star_\beta$ t} y \textit{g (F g) $\to^\star_\beta$ t} 
+        \end{enumerate}
+         Utilizaremos la primera condición de la definición de combinador de punto fijo, y entonces tenemos lo siquiente:\\
+         $$
+            F\:=\:\lambda f.\:(\lambda x.\:f\:(\lambda y.\:(x\:x)\:y))\:(\lambda x.\:f\:(\lambda y.\:(x\:x)\:y))
+         $$         
+
+        Ahora definimos la función {\tt reverse} de la siguiente manera:
+
+        {\tt reverse} = $F\:(\lambda r.\:l\:{\tt acc}.\:\text{if}\:({\tt is-nil}\:l)\:\text{then}\:{\tt acc}\:\text{else}\:r\:({\tt tail}\:l)\:({\tt cons}\:({\tt head}\:l)\:{\tt acc}))$
+
+         Donde:\\
+        \begin{itemize}
+            \item $r$ es la función {\tt reverse}.
+
+            \item $l$ es la lista de entrada que deseamos invertir.
+
+            \item {\tt acc} es una lista acumuladora inicialmente vacía.
+
+            \item {\tt is-nil} $l$ verifica si la lista $l$ esta vacía.
+
+            \item {\tt head} $l$ obtiene el primer elemento de la lista $l$.
+
+            \item {\tt tail} $l$ obtiene la cola de la lista $l$
+
+            \item {\tt cons} $x$ $xs$ agrega el elemento $x$ a la lista $xs$
+        \end{itemize}
+
+        Ahora demostraremos que la función {\tt reverse} invierte una lista.Usaremos la notación $cons$ y $nil$ para representar listas:\\
+        $${\tt reverse}\,\, ({\tt cons}\,\, 3\,\, ({\tt cons}\,\, 2\,\, ({\tt cons}\,\, 1\,\, {\tt nil})))$$
+        
+        Aplicamos la definicion de {\tt reverse} tuilizante el combinador de punto fijo $F$:\\
+
+        $F\:(\lambda r.\:l\:{\tt acc}.\:\text{if}\:({\tt is-nil}\:l)\:\text{then}\:{\tt acc}\:\text{else}\:r\:({\tt tail}\:l)\:({\tt cons}\:({\tt head}\:l)\:{\tt acc}))$ $({\tt cons}\,\, 3\,\, ({\tt cons}\,\, 2\,\, ({\tt cons}\,\, 1\,\, {\tt nil}))\:{\tt nil})$\\
+
+        Usamos el valor de $F$:\\
+
+        $(\lambda f.\:(\lambda x\:f\:(\lambda y.\:(x\:x)\:y))\:(\lambda x.\:f\:(\lambda y.\:(x\:x)\:y)))\:(\lambda r\:l\:{\tt acc}.\:\text{if}\:({\tt is-nil}\:l)\:\text{then}\:{\tt acc}\:\text{else}\:r({\tt tail}\:l)\:({\tt cons}\:({\tt head}\:l)\:{\tt acc}))\\
+        ({\tt cons}\,\, 3\,\, ({\tt cons}\,\, 2\,\, ({\tt cons}\,\, 1\,\, {\tt nil}))\:{\tt nil})$\\
+
+        Realizamos una reducción beta:\\
+        
+        $(\lambda x. \:(\lambda r\:l\:{\tt acc}.\:\text{if}\:({\tt is-nil}\:l)\:\text{then}\:{\tt acc}\:\text{else}\:r({\tt tail}\:l)\:({\tt cons}\:({\tt head}\:l)\:{\tt acc}))\:(\lambda y.\:(x\:x)\:y))\:(\lambda x.\:(\lambda r\:l\:{\tt acc}.\:\text{if}\:({\tt is-nil}\:l)\:\\
+        \text{then}\:{\tt acc}\: \text{else}\:r\:({\tt tail}\:l)({\tt cons}\:({\tt head}\:l)\:{\tt acc}))\:(\lambda y.\:(x\:x)\:y)\:({\tt cons}\,\, 3\,\, ({\tt cons}\,\, 2\,\, ({\tt cons}\,\, 1\,\, {\tt nil}))\:{\tt nil})$\\
+
+        Continuamos realizando reducciones beta:
+
+        $(\lambda r \: l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: {\tt acc} \: \text{else} \: r \: ({\tt tail} \: l) \: ({\tt cons} \: ({\tt head} \: l) \: {\tt acc})) \: (\lambda y. \: ((\lambda x. \: (\lambda r \: l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \\ \text{then} \: {\tt acc} \: \text{else} \: r \: ({\tt tail} \: l) \: ({\tt cons} \: ({\tt head} \: l) \: {\tt acc})) \: (\lambda y. \: (x \: x) \: y)) \: (\lambda x. \: (\lambda r \: l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: {\tt acc} \: \text{else} \: r \: ({\tt tail} \: l) \\ ({\tt cons} \: ({\tt head} \: l) \: {\tt acc})) \: (\lambda y. \: (x \: x) \: y))) \: ({\tt cons} \: 3 \: ({\tt cons} \: 2 \: ({\tt cons} \: 1 \: {\tt nil})) \: {\tt nil})$\\
+
+        Ahora aplicamos el valor de $\lambda y.$ $((\lambda x. \: (\lambda r \: l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: {\tt acc} \: \text{else} \: r \: ({\tt tail} \: l) \: ({\tt cons} \: ({\tt head} \: l) \: {\tt acc})) \\ (\lambda y. \: (x \: x) \: y)) \: (\lambda x. \: (\lambda r \: l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: {\tt acc} \: \text{else} \: r \: ({\tt tail} \: l) \: ({\tt cons} \: ({\tt head} \: l) \: {\tt acc})) \: (\lambda y. \: (x \: x) \: y))$ en \\ $\lambda x. \: (\lambda r \: l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: {\tt acc} \: \text{else} \: r \: ({\tt tail} \: l) \: ({\tt cons} \: ({\tt head} \: l) \: {\tt acc})) \: (\lambda y. \: (x \: x) \: y)$:\\
+
+        $(\lambda r \: l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: {\tt acc} \: \text{else} \: r \: ({\tt tail} \: l) \: ({\tt cons} \: ({\tt head} \: l) \: {\tt acc})) \: ((\lambda x. \: (\lambda r \: l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: {\tt acc} \: \text{else} \: r \\ ({\tt tail} \: l) \: ({\tt cons} \: ({\tt head} \: l) \: {\tt acc})) \: (\lambda y. \: (x \: x) \: y)) \: (\lambda x. \: (\lambda r \: l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: {\tt acc} \: \text{else} \: r \: ({\tt tail} \: l) \: ({\tt cons} \: ({\tt head} \: l) \: {\tt acc})) \\ (\lambda y. \: (x \: x) \: y))) \: ({\tt cons} \: 3 \: ({\tt cons} \: 2 \: ({\tt cons} \: 1 \: {\tt nil})) \: {\tt nil})$\\
+
+        Continuamos realizando reducciones beta:\\
+
+        $(\lambda r \: l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: {\tt acc} \: \text{else} \: r \: ({\tt tail} \: l) \: ({\tt cons} \: ({\tt head} \: l) \: {\tt acc})) \: ((\lambda x. \: (\lambda r \: l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: {\tt acc} \: \text{else} \: r \\ ({\tt tail} \: l) \: ({\tt cons} \: ({\tt head} \: l) \: {\tt acc})) \: (\lambda y. \: (x \: x) \: y)) \: (\lambda x. \: (\lambda r \: l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: {\tt acc} \: \text{else} \: r \: ({\tt tail} \: l) \: ({\tt cons} \: ({\tt head} \: l) \: {\tt acc})) \\ (\lambda y. \: (x \: x) \: y))) \: ({\tt cons} \: 3 \: ({\tt cons} \: 2 \: ({\tt cons} \: 1 \: {\tt nil})) \: {\tt nil})$ \\ 
+        
+        $(\lambda r \: l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: {\tt acc} \: \text{else} \: r \: ({\tt tail} \: l) \: ({\tt cons} \: ({\tt head} \: l) \: {\tt acc})) \: ((\lambda r \: l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: acc \: \text{else} \: r \\ ({\tt tail} \: l) \: ({\tt cons} \: ({\tt head} \: l) \: {\tt acc})) \: (\lambda y. \: ((\lambda x. \: (\lambda r \: l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: {\tt acc} \: \text{else} \: r \: ({\tt tail} \: l) \: ({\tt cons} \: ({\tt head} \: l) \: {\tt acc})) \\ (\lambda y. \: (x \: x) \: y)) \: (\lambda x. \: (\lambda r \: l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: {\tt acc} \: \text{else} \: r \: ({\tt tail} \: l) \: ({\tt cons} \: ({\tt head} \: l) \: {\tt acc})) \: (\lambda y. \: (x \: x) \: y)))$ \\ 
+        
+        $(\lambda r \: l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: {\tt acc} \: \text{else} \: r \: ({\tt tail} \: l) \: ({\tt cons} \: ({\tt head} \: l) \: {\tt acc})) \: (\lambda r \: l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: {\tt acc} \: \text{else} \: r \\ ({\tt tail} \: l) \: ({\tt cons} \: ({\tt head} \: l) \: {\tt acc}))$\\
+
+        Ahora, realizamos una reducción beta más en la parte superior:
+
+        $(\lambda r \: l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: {\tt acc} \: \text{else} \: r \: ({\tt tail} \: l) \: ({\tt cons} \: ({\tt head} \: l) \: {\tt acc})) \: (\lambda r \: l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: {\tt acc} \: \text{else} \: r \\ ({\tt tail} \: l) \: ({\tt cons} \: ({\tt head} \: l) \: {\tt acc}))$\\ 
+        
+        $\rightarrow (\lambda l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: {\tt acc} \: \text{else} \: (\lambda r \: l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: {\tt acc} \: \text{else} \: r \: ({\tt tail} \: l) \: ({\tt cons} \: ({\tt head} \: l) \: {\tt acc})) \\ ({\tt tail} \: l) \: ({\tt cons} \: ({\tt head} \: l) \: {\tt acc}))$ \\ 
+        
+        $\rightarrow (\lambda l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: {\tt acc} \: \text{else} \: (\lambda r \: l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: {\tt acc} \: \text{else} \: (\lambda l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: {\tt acc} \: \text{else} \\ (\lambda r \: l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: {\tt acc} \: \text{else} \: r \: ({\tt tail} \: l) \: ({\tt cons} \: ({\tt head} \: l) \: {\tt acc})) \: ({\tt tail} \: l) \: ({\tt cons} \: ({\tt head} \: l) \: {\tt acc})) \: ({\tt tail} \: l) \\ ({\tt cons} \: ({\tt head} \: l) \: {\tt acc}))$ \\ 
+        
+        $\rightarrow$ ...seguimos reduciendo\\
+
+        Apartir de este punto, a expresión se vuelve recursiva, y la reducción continúa de manera similar. Cada vez que se reduce, se aplica la lambda a sus argumentos correspondientes, entonces Continuamos reduciendo y aplicando las reglas hasta que finalmente llegamos a que:
+ 
+        \[{\tt reverse}\,\, ({\tt cons}\,\, 3\,\, ({\tt cons}\,\, 2\,\, ({\tt cons}\,\, 1\,\, {\tt nil}))) \to^\star_\beta ({\tt cons}\,\, 1\,\, ({\tt cons}\,\, 2\,\, ({\tt cons}\,\, 3\,\, {\tt nil}))).\]
+
+        Por lo tanto que la función {\tt reverse} propuesta invierte la lista correctamente.\\
 
         \item Considera la siguiente definición de un lenguaje de números naturales, cuya sintaxis se define con las siguientes reglas:
 
