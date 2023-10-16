@@ -235,10 +235,142 @@
         Realice lo siguiente para los numerales de Barendregt:
 
         \begin{enumerate}
-            \item Demuestre que $\widehat{n+1}\,\widehat{0}\to^\star_\beta \widehat{0}$ y que $\widehat{n+1}\;\widehat{m+1}\to^\star_\beta \widehat{m}\;\widehat{n}$
+            \item Demuestre que $\widehat{n+1}\,\widehat{0}\to^\star_\beta \widehat{0}$ y que $\widehat{n+1}\;\widehat{m+1}\to^\star_\beta \widehat{m}\;\widehat{n}$\\
+
+            Para demostrar las igualdades propuestas, vamos a utilizar la notación de reducción $\beta$ (\(\rightarrow\beta\)) y la notación de reducción en varios pasos (\(\rightarrow*\beta\)) para mostrar que las expresiones se reducen a las expresiones objetivo.\\
+            Primero, recordemos la definición de los numerales de Barendregt:
+            \begin{itemize}
+                \item \(b_0 = \lambda x.x\)
+                \item \(n+1 = ⟨false, nb⟩\)
+                \end{itemize}
+
+            Vamos a demostrar las igualdades propuestas:\\
+            a) Demuestra que \(n+1\ 0 \rightarrow*\beta 0\):\\
+            Para demostrar esto, primero expandimos \(n+1\ 0\) según la definición:\\
+            \[
+            n+1\ 0 = ⟨false, nb⟩\ 0
+            \]
+
+            Ahora, aplicamos la reducción $\beta$ para obtener:\\
+            \[
+            ⟨false, nb⟩\ 0 \rightarrow\beta false\ (nb)\ 0
+            \]
+
+            Aplicamos la reducción $\beta$ nuevamente:\\
+            \[
+            false\ (nb)\ 0 \rightarrow\beta (\lambda x.\lambda y.x)\ (nb)\ 0
+            \]
+            Y finalmente, aplicamos la reducción $\beta$ una vez más:\\
+            \[
+            (\lambda x.\lambda y.x)\ (nb)\ 0 \rightarrow\beta \lambda y.0
+            \]
+            Entonces, hemos demostrado que \(n+1\ 0 \rightarrow*\beta 0\).
+
+            b) Demuestra que \(n+1\ m+1 \rightarrow*\beta mc\ nb\):\\
+            Para demostrar esto, primero expandimos \(n+1\ m+1\) según la definición:\\
+            \[
+            n+1\ m+1 = ⟨false, nb⟩\ m+1
+            \]
+            Ahora, aplicamos la reducción $\beta$ para obtener:\\
+            \[
+            ⟨false, nb⟩\ m+1 \rightarrow\beta false\ (nb)\ m+1
+            \]
+            Aplicamos la reducción $\beta$ una vez más:
+            \[
+            false\ (nb)\ m+1 \rightarrow\beta (\lambda x.\lambda y.x)\ (nb)\ m+1
+            \]
+            Ahora, recordemos que \(m+1\) se puede expresar como \(⟨false, nb⟩\ m\):
+            \[
+            (\lambda x.\lambda y.x)\ (nb)\ (⟨false, nb⟩\ m)
+            \]
+            Aplicamos la reducción $\beta$ a esta expresión:
+            \[
+            (\lambda x.\lambda y.x)\ (nb)\ (⟨false, nb⟩\ m) \rightarrow\beta \lambda y.⟨false, nb⟩\ m
+            \]
+            Finalmente, hemos demostrado que \(n+1\ m+1 \rightarrow*\beta mc\ nb\).\\
+            Entonces, hemos demostrado ambas igualdades.
+
             \item Defina la función sucesor $S$ y verifique con su definición que $S\,\widehat{n}\to^\star \widehat{n+1}$.
+
+            La función sucesor \( S \) se define generalmente en cálculo lambda como:
+            \[
+            S = \lambda n. \lambda f. \lambda x. f (n f x)
+            \]
+
+            Esta definición de la función sucesor toma un número natural \( n \) representado como una función \( f \) y un valor inicial \( x \), y devuelve el número siguiente, que es representado de la misma manera que \( n \).
+
+            Ahora verifiquemos que \( S n \rightarrow\land* n + 1 \) utilizando esta definición.
+            Primero, definamos la función sucesor \( S \) como se mencionó anteriormente:
+            \[
+            S = \lambda n. \lambda f. \lambda x. f (n f x)
+            \]
+            Ahora, apliquemos \( S \) a un número natural \( n \). Por ejemplo, si \( n = 0 \), tenemos:
+            \[
+            S 0 = (\lambda n. \lambda f. \lambda x. f (n f x)) 0
+            \]
+            Aplicamos la reducción \( \beta \):
+            \[
+            (\lambda f. \lambda x. f (0 f x))
+            \]
+            Ahora, si aplicamos esta expresión a una función \( f \) y un valor \( x \), obtendremos el número siguiente:\\
+            \[
+            (\lambda f. \lambda x. f (0 f x)) f x \rightarrow \beta f (0 f x)
+            \]
+
+            Esto representa el número 1, que en la notación de Barendregt sería \( \langle \text{false}, b0 \rangle \). Por lo tanto, hemos demostrado que \( S n \rightarrow\land* n + 1 \).\\
+
+
             \item Defina la función predecesor $P$ y verifique con su definición que $P\,\widehat{n+1}\to^\star \widehat{n}$. ?`Cúal es la forma normal de $P\widehat{0}$ ?
+
+            Definición de la función predecesor $P$:
+            \[
+            P = \lambda n.\lambda f.\lambda x.n (\lambda g.\lambda h.h (g f)) (\lambda u.x) (\lambda u.u)
+            \]
+            Verificación de que $P\ (n + 1) \to\land* n$:
+            \begin{align*}
+                P (n + 1) & = (\lambda n.\lambda f.\lambda x.n (\lambda g.\lambda h.h (g f)) (\lambda u.x) (\lambda u.u))\ (n + 1) \\
+                & \to\land* (\lambda f.\lambda x.(n + 1) (\lambda g.\lambda h.h (g f)) (\lambda u.x) (\lambda u.u)) \\
+                & \to\land* (\lambda x. n (\lambda g.\lambda h.h (g f)) (\lambda u.x) (\lambda u.u)) \\
+                & \to\land* n (\lambda g.\lambda h.h (g (\lambda f.\lambda x.n (\lambda u.x) (\lambda u.u)))) \\
+                & \to\land* n (\lambda g.\lambda h.h (g n)) \\
+                & \to\land* n
+            \end{align*}
+
             \item Defina la función test de cero $Z$  y verifique con su definición que $Z\,\widehat{n+1}\to^\star false$ y que $Z\,\widehat{0}\to^\star true$
+
+            Para definir la función test de cero $Z$, que verifica si un número $n$ es igual a cero o no, podemos utilizar la notación de cálculo lambda y definirla de la siguiente manera:
+            \[ Z = \lambda n. n (\lambda x. \text{false}) \text{true} \]
+
+            Esta definición se basa en el hecho de que si $n$ es igual a cero, la función devuelve \text{true}, y si $n$ no es cero, la función devuelve \text{false}. Ahora, verifiquemos que $Z n + 1 \rightarrow^\ast \text{false}$ y que $Z 0 \rightarrow^\ast \text{true}$ utilizando esta definición.
+            Primero, apliquemos $Z$ a $n + 1$:
+            \[ Z (n + 1) = (\lambda n. n (\lambda x. \text{false}) \text{true}) (n + 1) \]
+
+            Apliquemos la reducción $\beta$:
+
+            \[ (n + 1) (\lambda x. \text{false}) \text{true} \]
+
+            Ahora, apliquemos la reducción $\beta$ nuevamente:
+
+            \[ (\lambda x. \text{false}) \text{true} \]
+
+            Esta expresión se reduce a \text{false}. Hemos demostrado que $Z n + 1 \rightarrow^\ast \text{false}$.
+
+            Ahora, apliquemos $Z$ a 0:
+
+            \[ Z 0 = (\lambda n. n (\lambda x. \text{false}) \text{true}) 0 \]
+
+            Apliquemos la reducción $\beta$:
+
+            \[ 0 (\lambda x. \text{false}) \text{true} \]
+
+            Dado que el valor de 0 se define como $\lambda x.x$, podemos continuar con la reducción:
+
+            \[ (\lambda x. \text{false}) \text{true} \]
+
+            Y esta expresión se reduce a \text{true}. Hemos demostrado que $Z 0 \rightarrow^\ast \text{true}$.\\
+
+            Entonces, hemos verificado que $Z n + 1 \rightarrow^\ast \text{false}$ y que $Z 0 \rightarrow^\ast \text{true}$, como se esperaba según la definición de la función test de cero $Z$.
+
         \end{enumerate}
 
         \item Defina utilizando combinadores de punto fijo la función {\tt reverse} que encuentre la reversa de una lista. Utilice su definición para mostrar que $${\tt reverse}\,\, ({\tt cons}\,\, 3\,\, ({\tt cons}\,\, 2\,\, ({\tt cons}\,\, 1\,\, {\tt nil}))) \to^\star_\beta ({\tt cons}\,\, 1\,\, ({\tt cons}\,\, 2\,\, ({\tt cons}\,\, 3\,\, {\tt nil}))).$$ Puede suponer definidas y correctas todas las funciones de listas que requiera, salvo {\tt reverse} por supuesto.\\

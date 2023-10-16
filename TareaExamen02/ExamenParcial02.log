@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2023.8.25)  12 OCT 2023 12:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2023.8.25)  16 OCT 2023 01:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -461,6 +461,49 @@ LaTeX Info: Redefining \Relbar on input line 971.
 LaTeX Info: Redefining \[ on input line 2953.
 LaTeX Info: Redefining \] on input line 2954.
 )
+(/usr/share/texlive/texmf-dist/tex/latex/semantic/semantic.sty
+Package: semantic 2003/10/28 v2.0(epsilon) 
+
+Semantic Package v2.0(epsilon) [2003/10/28]
+CVSId: $Id: semantic.dtx,v 1.11 2003/10/28 13:45:57 turtle Exp $
+\c@@@conflict=\count303
+Loading features: 
+(/usr/share/texlive/texmf-dist/tex/latex/semantic/ligature.sty
+\@pushedtoks=\toks38
+\@seentoks=\toks39
+)
+ math mode ligatures,
+(/usr/share/texlive/texmf-dist/tex/latex/semantic/infernce.sty
+\@@tempa=\toks40
+\@@tempb=\toks41
+\@@pSpace=\skip53
+\@@pEnd=\skip54
+\@@nSpace=\skip55
+\@@aLineBox=\box66
+)
+ inference rules,
+(/usr/share/texlive/texmf-dist/tex/latex/semantic/tdiagram.sty
+\@@xShift=\count304
+\@@yShift=\count305
+\@@symbol=\toks42
+\@@tempSymbol=\toks43
+)  T diagrams,
+(/usr/share/texlive/texmf-dist/tex/latex/semantic/reserved.sty
+\@@spacing=\toks44
+\@@formating=\toks45
+)
+ reserved words, (/usr/share/texlive/texmf-dist/tex/latex/semantic/shrthand.sty
+)  short hands,
+and general definitions.
+
+\@@maxwidth=\dimen267
+\@@pLineBox=\box67
+\@@cBox=\box68
+\@@pBox=\box69
+) (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibrarycalc.code.tex
 File: tikzlibrarycalc.code.tex 2023-01-15 v3.1.10 (3.1.10)
@@ -472,34 +515,30 @@ File: tikzlibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.code.
 tex
 File: pgflibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\arrowsize=\dimen267
+\arrowsize=\dimen268
 )) (/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
 Package: multicol 2021/11/30 v1.9d multicolumn formatting (FMi)
-\c@tracingmulticols=\count303
-\mult@box=\box66
-\multicol@leftmargin=\dimen268
-\c@unbalance=\count304
-\c@collectmore=\count305
-\doublecol@number=\count306
-\multicoltolerance=\count307
-\multicolpretolerance=\count308
-\full@width=\dimen269
-\page@free=\dimen270
-\premulticols=\dimen271
-\postmulticols=\dimen272
-\multicolsep=\skip53
-\multicolbaselineskip=\skip54
-\partial@page=\box67
-\last@line=\box68
-\maxbalancingoverflow=\dimen273
-\mult@rightbox=\box69
-\mult@grightbox=\box70
-\mult@firstbox=\box71
-\mult@gfirstbox=\box72
-\@tempa=\box73
-\@tempa=\box74
-\@tempa=\box75
-\@tempa=\box76
+\c@tracingmulticols=\count306
+\mult@box=\box70
+\multicol@leftmargin=\dimen269
+\c@unbalance=\count307
+\c@collectmore=\count308
+\doublecol@number=\count309
+\multicoltolerance=\count310
+\multicolpretolerance=\count311
+\full@width=\dimen270
+\page@free=\dimen271
+\premulticols=\dimen272
+\postmulticols=\dimen273
+\multicolsep=\skip56
+\multicolbaselineskip=\skip57
+\partial@page=\box71
+\last@line=\box72
+\maxbalancingoverflow=\dimen274
+\mult@rightbox=\box73
+\mult@grightbox=\box74
+\mult@firstbox=\box75
+\mult@gfirstbox=\box76
 \@tempa=\box77
 \@tempa=\box78
 \@tempa=\box79
@@ -532,15 +571,19 @@ Package: multicol 2021/11/30 v1.9d multicolumn formatting (FMi)
 \@tempa=\box106
 \@tempa=\box107
 \@tempa=\box108
-\c@minrows=\count309
-\c@columnbadness=\count310
-\c@finalcolumnbadness=\count311
-\last@try=\dimen274
-\multicolovershoot=\dimen275
-\multicolundershoot=\dimen276
-\mult@nat@firstbox=\box109
-\colbreak@box=\box110
-\mc@col@check@num=\count312
+\@tempa=\box109
+\@tempa=\box110
+\@tempa=\box111
+\@tempa=\box112
+\c@minrows=\count312
+\c@columnbadness=\count313
+\c@finalcolumnbadness=\count314
+\last@try=\dimen275
+\multicolovershoot=\dimen276
+\multicolundershoot=\dimen277
+\mult@nat@firstbox=\box113
+\colbreak@box=\box114
+\mc@col@check@num=\count315
 )
 (/usr/share/texlive/texmf-dist/tex/latex/lipsum/lipsum.sty
 (/usr/share/texlive/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
@@ -549,23 +592,23 @@ Package: expl3 2023-01-16 L3 programming layer (loader)
 
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count313
-\l__pdf_internal_box=\box111
+\l__color_backend_stack_int=\count316
+\l__pdf_internal_box=\box115
 ))
 Package: l3keys2e 2023-01-16 LaTeX2e option processing using LaTeX3 keys
 )
 Package: lipsum 2021-09-20 v2.7 150 paragraphs of Lorem Ipsum dummy text
-\g__lipsum_par_int=\count314
-\l__lipsum_a_int=\count315
-\l__lipsum_b_int=\count316
+\g__lipsum_par_int=\count317
+\l__lipsum_a_int=\count318
+\l__lipsum_b_int=\count319
 
 (/usr/share/texlive/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex))
 (/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
-\multirow@colwidth=\skip55
-\multirow@cntb=\count317
-\multirow@dima=\skip56
-\bigstrutjot=\dimen277
+\multirow@colwidth=\skip58
+\multirow@cntb=\count320
+\multirow@dima=\skip59
+\bigstrutjot=\dimen278
 )
 (/usr/share/texlive/texmf-dist/tex/latex/forest/forest.sty
 Package: forest 2017/07/14 v2.1.5 Drawing (linguistic) trees
@@ -617,26 +660,26 @@ File: tikzlibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
 s.multipart.code.tex
 File: pgflibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfnodepartlowerbox=\box112
-\pgfnodeparttwobox=\box113
-\pgfnodepartthreebox=\box114
-\pgfnodepartfourbox=\box115
-\pgfnodeparttwentybox=\box116
-\pgfnodepartnineteenbox=\box117
-\pgfnodeparteighteenbox=\box118
-\pgfnodepartseventeenbox=\box119
-\pgfnodepartsixteenbox=\box120
-\pgfnodepartfifteenbox=\box121
-\pgfnodepartfourteenbox=\box122
-\pgfnodepartthirteenbox=\box123
-\pgfnodeparttwelvebox=\box124
-\pgfnodepartelevenbox=\box125
-\pgfnodeparttenbox=\box126
-\pgfnodepartninebox=\box127
-\pgfnodeparteightbox=\box128
-\pgfnodepartsevenbox=\box129
-\pgfnodepartsixbox=\box130
-\pgfnodepartfivebox=\box131
+\pgfnodepartlowerbox=\box116
+\pgfnodeparttwobox=\box117
+\pgfnodepartthreebox=\box118
+\pgfnodepartfourbox=\box119
+\pgfnodeparttwentybox=\box120
+\pgfnodepartnineteenbox=\box121
+\pgfnodeparteighteenbox=\box122
+\pgfnodepartseventeenbox=\box123
+\pgfnodepartsixteenbox=\box124
+\pgfnodepartfifteenbox=\box125
+\pgfnodepartfourteenbox=\box126
+\pgfnodepartthirteenbox=\box127
+\pgfnodeparttwelvebox=\box128
+\pgfnodepartelevenbox=\box129
+\pgfnodeparttenbox=\box130
+\pgfnodepartninebox=\box131
+\pgfnodeparteightbox=\box132
+\pgfnodepartsevenbox=\box133
+\pgfnodepartsixbox=\box134
+\pgfnodepartfivebox=\box135
 )))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibraryfit.code.tex
@@ -646,15 +689,15 @@ File: tikzlibraryfit.code.tex 2023-01-15 v3.1.10 (3.1.10)
 s.code.tex
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex
 )
-\pgf@intersect@solutions=\count318
+\pgf@intersect@solutions=\count321
 ) (/usr/share/texlive/texmf-dist/tex/latex/pgfopts/pgfopts.sty
 Package: pgfopts 2014/07/10 v2.1a LaTeX package options with pgfkeys
-\pgfopts@list@add@a@toks=\toks38
-\pgfopts@list@add@b@toks=\toks39
+\pgfopts@list@add@a@toks=\toks46
+\pgfopts@list@add@b@toks=\toks47
 )
 (/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count319
+\etb@tempcnta=\count322
 )
 (/usr/share/texlive/texmf-dist/tex/latex/elocalloc/elocalloc.sty
 Package: elocalloc 2016/12/15 v0.03 local allocation for LaTeX 2015+ (DPC)
@@ -670,92 +713,92 @@ Package: xparse 2023-01-16 L3 Experimental document command parser
 )
 (/usr/share/texlive/texmf-dist/tex/latex/inlinedef/inlinedef.sty
 Package: inlinedef 2008/07/10 v1.0 Inlined expansions within definitions
-\ID@toks=\toks40
-\ID@count=\count320
+\ID@toks=\toks48
+\ID@count=\count323
 )
-\ID@usercommands=\toks41
-\safeloop@depth=\count321
-\safeRKloop@depth=\count322
-\forest@temp@dimen=\dimen278
-\forest@temp@count=\count323
-\forest@n=\count324
-\forest@temp@global@count=\count325
-\forest@temp@toks=\toks42
-\forest@temparray@M=\count326
-\forest@temparray@N=\count327
-\forest@global@temparray@M=\count328
-\forest@global@temparray@N=\count329
-\forest@isnum@count=\count330
-\forest@isdim@nonintpart=\count331
-\forest@isdim@dimen=\dimen279
-\forest@sort@m=\count332
-\forest@sort@k=\count333
-\forest@sort@p=\count334
-\bracket@content=\toks43
-\bracket@afterthought=\toks44
-\forest@node@maxid=\count335
-\forest@process@left@M=\count336
-\forest@process@left@N=\count337
-\forest@process@right@M=\count338
-\forest@process@right@N=\count339
-\forest@process@saved@M=\count340
-\forest@process@saved@N=\count341
-\forest@process@result@M=\count342
-\forest@process@result@N=\count343
-\forest@process@n=\count344
-\forest@nodewalk@branch@toks=\toks45
-\forest@nodewalk@shortsteps@resolution=\toks46
-\forest@do@dynamics=\toks47
-\forest@box=\box132
-\forest@xg=\dimen280
-\forest@yg=\dimen281
-\forest@xs=\dimen282
-\forest@ys=\dimen283
-\forest@pi@toks=\toks48
-\forest@segment@toks=\toks49
-\forest@PIi@toks=\toks50
-\forest@PIii@toks=\toks51
+\ID@usercommands=\toks49
+\safeloop@depth=\count324
+\safeRKloop@depth=\count325
+\forest@temp@dimen=\dimen279
+\forest@temp@count=\count326
+\forest@n=\count327
+\forest@temp@global@count=\count328
+\forest@temp@toks=\toks50
+\forest@temparray@M=\count329
+\forest@temparray@N=\count330
+\forest@global@temparray@M=\count331
+\forest@global@temparray@N=\count332
+\forest@isnum@count=\count333
+\forest@isdim@nonintpart=\count334
+\forest@isdim@dimen=\dimen280
+\forest@sort@m=\count335
+\forest@sort@k=\count336
+\forest@sort@p=\count337
+\bracket@content=\toks51
+\bracket@afterthought=\toks52
+\forest@node@maxid=\count338
+\forest@process@left@M=\count339
+\forest@process@left@N=\count340
+\forest@process@right@M=\count341
+\forest@process@right@N=\count342
+\forest@process@saved@M=\count343
+\forest@process@saved@N=\count344
+\forest@process@result@M=\count345
+\forest@process@result@N=\count346
+\forest@process@n=\count347
+\forest@nodewalk@branch@toks=\toks53
+\forest@nodewalk@shortsteps@resolution=\toks54
+\forest@do@dynamics=\toks55
+\forest@box=\box136
+\forest@xg=\dimen281
+\forest@yg=\dimen282
+\forest@xs=\dimen283
+\forest@ys=\dimen284
+\forest@pi@toks=\toks56
+\forest@segment@toks=\toks57
+\forest@PIi@toks=\toks58
+\forest@PIii@toks=\toks59
 \forest@copy@in=\read4
 \forest@copy@out=\write4
-\forest@externalize@max@outer@n=\count345
-\forest@externalize@inner@n=\count346
+\forest@externalize@max@outer@n=\count348
+\forest@externalize@inner@n=\count349
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tikz-qtree/tikz-qtree.sty
 (/usr/share/texlive/texmf-dist/tex/latex/tikz-qtree/pgftree.sty
 (/usr/share/texlive/texmf-dist/tex/latex/tikz-qtree/pgfsubpic.sty
 (/usr/share/texlive/texmf-dist/tex/latex/tikz-qtree/pgfsubpic.tex
-\pgf@subpicminx=\dimen284
-\pgf@subpicminy=\dimen285
-\pgf@subpicmaxx=\dimen286
-\pgf@subpicmaxy=\dimen287
+\pgf@subpicminx=\dimen285
+\pgf@subpicminy=\dimen286
+\pgf@subpicmaxx=\dimen287
+\pgf@subpicmaxy=\dimen288
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/tikz-qtree/pgftree.tex
-\levelsep=\dimen288
-\subtreesep=\dimen289
-\smuggle@levelsep=\dimen290
-\smuggle@subtreesep=\dimen291
-\this@levelsep=\dimen292
-\this@subtreesep=\dimen293
-\pgftree@childx=\dimen294
-\pgftree@savechildx=\dimen295
-\pgftree@childy=\dimen296
-\pgftree@savechildy=\dimen297
-\pgftree@childi=\count347
-\pgftree@savechildi=\count348
-\pgftree@level=\count349
-\pgftree@depth=\dimen298
-\pgf@subpic@hbox@children=\box133
-\pgf@subpic@minx@children=\dimen299
-\pgf@subpic@miny@children=\dimen300
-\pgf@subpic@maxx@children=\dimen301
-\pgf@subpic@maxy@children=\dimen302
-\pgftree@lastchildx=\dimen303
-\pgftree@lastchildy=\dimen304
+\levelsep=\dimen289
+\subtreesep=\dimen290
+\smuggle@levelsep=\dimen291
+\smuggle@subtreesep=\dimen292
+\this@levelsep=\dimen293
+\this@subtreesep=\dimen294
+\pgftree@childx=\dimen295
+\pgftree@savechildx=\dimen296
+\pgftree@childy=\dimen297
+\pgftree@savechildy=\dimen298
+\pgftree@childi=\count350
+\pgftree@savechildi=\count351
+\pgftree@level=\count352
+\pgftree@depth=\dimen299
+\pgf@subpic@hbox@children=\box137
+\pgf@subpic@minx@children=\dimen300
+\pgf@subpic@miny@children=\dimen301
+\pgf@subpic@maxx@children=\dimen302
+\pgf@subpic@maxy@children=\dimen303
+\pgftree@lastchildx=\dimen304
+\pgftree@lastchildy=\dimen305
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/tikz-qtree/tikz-qtree.tex
-\@result=\toks52
-\child@list=\toks53
-\root@node=\toks54
+\@result=\toks60
+\child@list=\toks61
+\root@node=\toks62
 ))
 (./ExamenParcial02.aux
 LaTeX Info: Redefining \. on input line 5.
@@ -763,34 +806,34 @@ LaTeX Info: Redefining \% on input line 5.
 )
 \openout1 = `ExamenParcial02.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count350
-\scratchdimen=\dimen305
-\scratchbox=\box134
-\nofMPsegments=\count351
-\nofMParguments=\count352
-\everyMPshowfont=\toks55
-\MPscratchCnt=\count353
-\MPscratchDim=\dimen306
-\MPnumerator=\count354
-\makeMPintoPDFobject=\count355
-\everyMPtoPDFconversion=\toks56
+\scratchcounter=\count353
+\scratchdimen=\dimen306
+\scratchbox=\box138
+\nofMPsegments=\count354
+\nofMParguments=\count355
+\everyMPshowfont=\toks63
+\MPscratchCnt=\count356
+\MPscratchDim=\dimen307
+\MPnumerator=\count357
+\makeMPintoPDFobject=\count358
+\everyMPtoPDFconversion=\toks64
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -800,31 +843,36 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Info: Redefining \. on input line 30.
-LaTeX Info: Redefining \% on input line 30.
-\c@lstlisting=\count356
+LaTeX Info: Redefining \. on input line 32.
+LaTeX Info: Redefining \% on input line 32.
+\c@lstlisting=\count359
 <UNAM.png, id=4, 534.99875pt x 601.24625pt>
 File: UNAM.png Graphic file (type png)
 <use UNAM.png>
-Package pdftex.def Info: UNAM.png  used on input line 67.
+Package pdftex.def Info: UNAM.png  used on input line 69.
 (pdftex.def)             Requested size: 72.26999pt x 81.21977pt.
 <EFC.png, id=6, 449.68pt x 513.92pt>
 File: EFC.png Graphic file (type png)
 <use EFC.png>
-Package pdftex.def Info: EFC.png  used on input line 67.
+Package pdftex.def Info: EFC.png  used on input line 69.
 (pdftex.def)             Requested size: 72.26999pt x 82.5896pt.
 
-Overfull \hbox (3.60556pt too wide) in paragraph at lines 67--68
+Overfull \hbox (3.60556pt too wide) in paragraph at lines 69--70
 [][][][][][][] 
  []
 
 
-Overfull \hbox (7.26385pt too wide) in paragraph at lines 71--73
+Overfull \hbox (7.26385pt too wide) in paragraph at lines 73--75
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 84--85
+Underfull \hbox (badness 10000) in paragraph at lines 86--87
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 88--89
 
  []
 
@@ -833,32 +881,476 @@ Underfull \hbox (badness 10000) in paragraph at lines 90--91
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 98--99
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 104--105
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 110--111
+
+ []
+
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./UNAM.png> <./EFC.png>] (
-./ExamenParcial02.aux
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./UNAM.png> <./EFC.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 112--119
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 120--121
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 122--123
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 124--125
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 131--132
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 139--140
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 152--153
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 158--159
+
+ []
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 160--161
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 165--166
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 168--169
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 171--172
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 174--175
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 176--177
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 180--181
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 182--183
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 186--187
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 189--190
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 192--193
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 197--198
+
+ []
+
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 199--200
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 201--202
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 203--205
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 206--207
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 209--210
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 211--212
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 213--214
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 215--217
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 218--219
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 220--221
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 238--239
+
+ []
+
+[4]
+
+LaTeX Warning: Command \textlangle invalid in math mode on input line 244.
+
+
+LaTeX Warning: Command \textlangle invalid in math mode on input line 244.
+
+
+LaTeX Warning: Command \textrangle invalid in math mode on input line 244.
+
+
+LaTeX Warning: Command \textrangle invalid in math mode on input line 244.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 247--250
+
+ []
+
+
+LaTeX Warning: Command \textlangle invalid in math mode on input line 251.
+
+
+LaTeX Warning: Command \textlangle invalid in math mode on input line 251.
+
+
+LaTeX Warning: Command \textrangle invalid in math mode on input line 251.
+
+
+LaTeX Warning: Command \textrangle invalid in math mode on input line 251.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 254--255
+
+ []
+
+
+LaTeX Warning: Command \textlangle invalid in math mode on input line 256.
+
+
+LaTeX Warning: Command \textlangle invalid in math mode on input line 256.
+
+
+LaTeX Warning: Command \textrangle invalid in math mode on input line 256.
+
+
+LaTeX Warning: Command \textrangle invalid in math mode on input line 256.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 259--260
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 262--264
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 269--271
+
+ []
+
+
+LaTeX Warning: Command \textlangle invalid in math mode on input line 272.
+
+
+LaTeX Warning: Command \textlangle invalid in math mode on input line 272.
+
+
+LaTeX Warning: Command \textrangle invalid in math mode on input line 272.
+
+
+LaTeX Warning: Command \textrangle invalid in math mode on input line 272.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 273--275
+
+ []
+
+
+LaTeX Warning: Command \textlangle invalid in math mode on input line 276.
+
+
+LaTeX Warning: Command \textlangle invalid in math mode on input line 276.
+
+
+LaTeX Warning: Command \textrangle invalid in math mode on input line 276.
+
+
+LaTeX Warning: Command \textrangle invalid in math mode on input line 276.
+
+
+LaTeX Warning: Command \textlangle invalid in math mode on input line 282.
+
+
+LaTeX Warning: Command \textlangle invalid in math mode on input line 282.
+
+
+LaTeX Warning: Command \textrangle invalid in math mode on input line 282.
+
+
+LaTeX Warning: Command \textrangle invalid in math mode on input line 282.
+
+
+LaTeX Warning: Command \textlangle invalid in math mode on input line 284.
+
+
+LaTeX Warning: Command \textlangle invalid in math mode on input line 284.
+
+
+LaTeX Warning: Command \textrangle invalid in math mode on input line 284.
+
+
+LaTeX Warning: Command \textrangle invalid in math mode on input line 284.
+
+
+LaTeX Warning: Command \textlangle invalid in math mode on input line 288.
+
+
+LaTeX Warning: Command \textlangle invalid in math mode on input line 288.
+
+
+LaTeX Warning: Command \textrangle invalid in math mode on input line 288.
+
+
+LaTeX Warning: Command \textrangle invalid in math mode on input line 288.
+
+
+LaTeX Warning: Command \textlangle invalid in math mode on input line 288.
+
+
+LaTeX Warning: Command \textlangle invalid in math mode on input line 288.
+
+
+LaTeX Warning: Command \textrangle invalid in math mode on input line 288.
+
+
+LaTeX Warning: Command \textrangle invalid in math mode on input line 288.
+
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 314--316
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 320--321
+
+ []
+
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 370--371
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 376--377
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 384--385
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 393--394
+
+ []
+
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 410--411
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 413--414
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 415--416
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 417--418
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 419--421
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 422--423
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 424--426
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 429--430
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 431--432
+
+ []
+
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 433--434
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 435--436
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 437--438
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 439--440
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 441--442
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 445--446
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 447--448
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 449--450
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 451--452
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 457--458
+
+ []
+
+[9] [10] (./ExamenParcial02.aux
 LaTeX Info: Redefining \. on input line 5.
 LaTeX Info: Redefining \% on input line 5.
 ) ) 
 Here is how much of TeX's memory you used:
- 27085 strings out of 476091
- 636822 string characters out of 5794081
- 1862330 words of memory out of 5000000
- 47111 multiletter control sequences out of 15000+600000
- 514553 words of font info for 40 fonts, out of 8000000 for 9000
+ 27486 strings out of 476091
+ 642812 string characters out of 5794081
+ 1869330 words of memory out of 5000000
+ 47477 multiletter control sequences out of 15000+600000
+ 519763 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 102i,7n,104p,1614b,376s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on ExamenParcial02.pdf (1 page, 247124 bytes).
+ 102i,10n,104p,1614b,379s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf/fonts/type1/public/cm-super/
+sfrm1000.pfb>
+Output written on ExamenParcial02.pdf (10 pages, 378755 bytes).
 PDF statistics:
- 51 PDF objects out of 1000 (max. 8388607)
- 29 compressed objects within 1 object stream
+ 136 PDF objects out of 1000 (max. 8388607)
+ 83 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  23 words of extra memory for PDF output out of 10000 (max. 10000000)
 
