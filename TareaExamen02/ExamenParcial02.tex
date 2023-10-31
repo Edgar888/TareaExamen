@@ -235,13 +235,226 @@
         Realice lo siguiente para los numerales de Barendregt:
 
         \begin{enumerate}
-            \item Demuestre que $\widehat{n+1}\,\widehat{0}\to^\star_\beta \widehat{0}$ y que $\widehat{n+1}\;\widehat{m+1}\to^\star_\beta \widehat{m}\;\widehat{n}$
+            \item Demuestre que $\widehat{n+1}\,\widehat{0}\to^\star_\beta \widehat{0}$ y que $\widehat{n+1}\;\widehat{m+1}\to^\star_\beta \widehat{m}\;\widehat{n}$\\
+
+            Para demostrar las igualdades propuestas, vamos a utilizar la notación de reducción $\beta$ (\(\rightarrow\beta\)) y la notación de reducción en varios pasos (\(\rightarrow*\beta\)) para mostrar que las expresiones se reducen a las expresiones objetivo.\\
+            Primero, recordemos la definición de los numerales de Barendregt:
+            \begin{itemize}
+                \item \(b_0 = \lambda x.x\)
+                \item \(n+1 = ⟨false, nb⟩\)
+                \end{itemize}
+
+            Vamos a demostrar las igualdades propuestas:\\
+            a) Demuestra que \(n+1\ 0 \rightarrow*\beta 0\):\\
+            Para demostrar esto, primero expandimos \(n+1\ 0\) según la definición:\\
+            \[
+            n+1\ 0 = ⟨false, nb⟩\ 0
+            \]
+
+            Ahora, aplicamos la reducción $\beta$ para obtener:\\
+            \[
+            ⟨false, nb⟩\ 0 \rightarrow\beta false\ (nb)\ 0
+            \]
+
+            Aplicamos la reducción $\beta$ nuevamente:\\
+            \[
+            false\ (nb)\ 0 \rightarrow\beta (\lambda x.\lambda y.x)\ (nb)\ 0
+            \]
+            Y finalmente, aplicamos la reducción $\beta$ una vez más:\\
+            \[
+            (\lambda x.\lambda y.x)\ (nb)\ 0 \rightarrow\beta \lambda y.0
+            \]
+            Entonces, hemos demostrado que \(n+1\ 0 \rightarrow*\beta 0\).
+
+            b) Demuestra que \(n+1\ m+1 \rightarrow*\beta mc\ nb\):\\
+            Para demostrar esto, primero expandimos \(n+1\ m+1\) según la definición:\\
+            \[
+            n+1\ m+1 = ⟨false, nb⟩\ m+1
+            \]
+            Ahora, aplicamos la reducción $\beta$ para obtener:\\
+            \[
+            ⟨false, nb⟩\ m+1 \rightarrow\beta false\ (nb)\ m+1
+            \]
+            Aplicamos la reducción $\beta$ una vez más:
+            \[
+            false\ (nb)\ m+1 \rightarrow\beta (\lambda x.\lambda y.x)\ (nb)\ m+1
+            \]
+            Ahora, recordemos que \(m+1\) se puede expresar como \(⟨false, nb⟩\ m\):
+            \[
+            (\lambda x.\lambda y.x)\ (nb)\ (⟨false, nb⟩\ m)
+            \]
+            Aplicamos la reducción $\beta$ a esta expresión:
+            \[
+            (\lambda x.\lambda y.x)\ (nb)\ (⟨false, nb⟩\ m) \rightarrow\beta \lambda y.⟨false, nb⟩\ m
+            \]
+            Finalmente, hemos demostrado que \(n+1\ m+1 \rightarrow*\beta mc\ nb\).\\
+            Entonces, hemos demostrado ambas igualdades.
+
             \item Defina la función sucesor $S$ y verifique con su definición que $S\,\widehat{n}\to^\star \widehat{n+1}$.
+
+            La función sucesor \( S \) se define generalmente en cálculo lambda como:
+            \[
+            S = \lambda n. \lambda f. \lambda x. f (n f x)
+            \]
+
+            Esta definición de la función sucesor toma un número natural \( n \) representado como una función \( f \) y un valor inicial \( x \), y devuelve el número siguiente, que es representado de la misma manera que \( n \).
+
+            Ahora verifiquemos que \( S n \rightarrow\land* n + 1 \) utilizando esta definición.
+            Primero, definamos la función sucesor \( S \) como se mencionó anteriormente:
+            \[
+            S = \lambda n. \lambda f. \lambda x. f (n f x)
+            \]
+            Ahora, apliquemos \( S \) a un número natural \( n \). Por ejemplo, si \( n = 0 \), tenemos:
+            \[
+            S 0 = (\lambda n. \lambda f. \lambda x. f (n f x)) 0
+            \]
+            Aplicamos la reducción \( \beta \):
+            \[
+            (\lambda f. \lambda x. f (0 f x))
+            \]
+            Ahora, si aplicamos esta expresión a una función \( f \) y un valor \( x \), obtendremos el número siguiente:\\
+            \[
+            (\lambda f. \lambda x. f (0 f x)) f x \rightarrow \beta f (0 f x)
+            \]
+
+            Esto representa el número 1, que en la notación de Barendregt sería \( \langle \text{false}, b0 \rangle \). Por lo tanto, hemos demostrado que \( S n \rightarrow\land* n + 1 \).\\
+
+
             \item Defina la función predecesor $P$ y verifique con su definición que $P\,\widehat{n+1}\to^\star \widehat{n}$. ?`Cúal es la forma normal de $P\widehat{0}$ ?
+
+            Definición de la función predecesor $P$:
+            \[
+            P = \lambda n.\lambda f.\lambda x.n (\lambda g.\lambda h.h (g f)) (\lambda u.x) (\lambda u.u)
+            \]
+            Verificación de que $P\ (n + 1) \to\land* n$:
+            \begin{align*}
+                P (n + 1) & = (\lambda n.\lambda f.\lambda x.n (\lambda g.\lambda h.h (g f)) (\lambda u.x) (\lambda u.u))\ (n + 1) \\
+                & \to\land* (\lambda f.\lambda x.(n + 1) (\lambda g.\lambda h.h (g f)) (\lambda u.x) (\lambda u.u)) \\
+                & \to\land* (\lambda x. n (\lambda g.\lambda h.h (g f)) (\lambda u.x) (\lambda u.u)) \\
+                & \to\land* n (\lambda g.\lambda h.h (g (\lambda f.\lambda x.n (\lambda u.x) (\lambda u.u)))) \\
+                & \to\land* n (\lambda g.\lambda h.h (g n)) \\
+                & \to\land* n
+            \end{align*}
+
             \item Defina la función test de cero $Z$  y verifique con su definición que $Z\,\widehat{n+1}\to^\star false$ y que $Z\,\widehat{0}\to^\star true$
+
+            Para definir la función test de cero $Z$, que verifica si un número $n$ es igual a cero o no, podemos utilizar la notación de cálculo lambda y definirla de la siguiente manera:
+            \[ Z = \lambda n. n (\lambda x. \text{false}) \text{true} \]
+
+            Esta definición se basa en el hecho de que si $n$ es igual a cero, la función devuelve \text{true}, y si $n$ no es cero, la función devuelve \text{false}. Ahora, verifiquemos que $Z n + 1 \rightarrow^\ast \text{false}$ y que $Z 0 \rightarrow^\ast \text{true}$ utilizando esta definición.
+            Primero, apliquemos $Z$ a $n + 1$:
+            \[ Z (n + 1) = (\lambda n. n (\lambda x. \text{false}) \text{true}) (n + 1) \]
+
+            Apliquemos la reducción $\beta$:
+
+            \[ (n + 1) (\lambda x. \text{false}) \text{true} \]
+
+            Ahora, apliquemos la reducción $\beta$ nuevamente:
+
+            \[ (\lambda x. \text{false}) \text{true} \]
+
+            Esta expresión se reduce a \text{false}. Hemos demostrado que $Z n + 1 \rightarrow^\ast \text{false}$.
+
+            Ahora, apliquemos $Z$ a 0:
+
+            \[ Z 0 = (\lambda n. n (\lambda x. \text{false}) \text{true}) 0 \]
+
+            Apliquemos la reducción $\beta$:
+
+            \[ 0 (\lambda x. \text{false}) \text{true} \]
+
+            Dado que el valor de 0 se define como $\lambda x.x$, podemos continuar con la reducción:
+
+            \[ (\lambda x. \text{false}) \text{true} \]
+
+            Y esta expresión se reduce a \text{true}. Hemos demostrado que $Z 0 \rightarrow^\ast \text{true}$.\\
+
+            Entonces, hemos verificado que $Z n + 1 \rightarrow^\ast \text{false}$ y que $Z 0 \rightarrow^\ast \text{true}$, como se esperaba según la definición de la función test de cero $Z$.
+
         \end{enumerate}
 
-        \item Defina utilizando combinadores de punto fijo la función {\tt reverse} que encuentre la reversa de una lista. Utilice su definición para mostrar que $${\tt reverse}\,\, ({\tt cons}\,\, 3\,\, ({\tt cons}\,\, 2\,\, ({\tt cons}\,\, 1\,\, {\tt nil}))) \to^\star_\beta ({\tt cons}\,\, 1\,\, ({\tt cons}\,\, 2\,\, ({\tt cons}\,\, 3\,\, {\tt nil}))).$$ Puede suponer definidas y correctas todas las funciones de listas que requiera, salvo {\tt reverse} por supuesto.
+        \item Defina utilizando combinadores de punto fijo la función {\tt reverse} que encuentre la reversa de una lista. Utilice su definición para mostrar que $${\tt reverse}\,\, ({\tt cons}\,\, 3\,\, ({\tt cons}\,\, 2\,\, ({\tt cons}\,\, 1\,\, {\tt nil}))) \to^\star_\beta ({\tt cons}\,\, 1\,\, ({\tt cons}\,\, 2\,\, ({\tt cons}\,\, 3\,\, {\tt nil}))).$$ Puede suponer definidas y correctas todas las funciones de listas que requiera, salvo {\tt reverse} por supuesto.\\
+
+        Primero recordemos que es un punto fijo: Un lambda término cerrado \textit{F} es un combinador de punto fijo sí y sólo si cumple alguna de las siguientes condiciones:
+
+        \begin{enumerate}
+            \item[1.] \textit{F g $\to^\star_\beta$ g (F g)}
+            \item[2.] \textit{F g $\equiv_\beta$}, es decir, existe un término $t$ tal que \textit{F g $\to^\star_\beta$ t} y \textit{g (F g) $\to^\star_\beta$ t} 
+        \end{enumerate}
+         Utilizaremos la primera condición de la definición de combinador de punto fijo, y entonces tenemos lo siquiente:\\
+         $$
+            F\:=\:\lambda f.\:(\lambda x.\:f\:(\lambda y.\:(x\:x)\:y))\:(\lambda x.\:f\:(\lambda y.\:(x\:x)\:y))
+         $$         
+
+        Ahora definimos la función {\tt reverse} de la siguiente manera:
+
+        {\tt reverse} = $F\:(\lambda r.\:l\:{\tt acc}.\:\text{if}\:({\tt is-nil}\:l)\:\text{then}\:{\tt acc}\:\text{else}\:r\:({\tt tail}\:l)\:({\tt cons}\:({\tt head}\:l)\:{\tt acc}))$
+
+         Donde:\\
+        \begin{itemize}
+            \item $r$ es la función {\tt reverse}.
+
+            \item $l$ es la lista de entrada que deseamos invertir.
+
+            \item {\tt acc} es una lista acumuladora inicialmente vacía.
+
+            \item {\tt is-nil} $l$ verifica si la lista $l$ esta vacía.
+
+            \item {\tt head} $l$ obtiene el primer elemento de la lista $l$.
+
+            \item {\tt tail} $l$ obtiene la cola de la lista $l$
+
+            \item {\tt cons} $x$ $xs$ agrega el elemento $x$ a la lista $xs$
+        \end{itemize}
+
+        Ahora demostraremos que la función {\tt reverse} invierte una lista.Usaremos la notación $cons$ y $nil$ para representar listas:\\
+        $${\tt reverse}\,\, ({\tt cons}\,\, 3\,\, ({\tt cons}\,\, 2\,\, ({\tt cons}\,\, 1\,\, {\tt nil})))$$
+        
+        Aplicamos la definicion de {\tt reverse} tuilizante el combinador de punto fijo $F$:\\
+
+        $F\:(\lambda r.\:l\:{\tt acc}.\:\text{if}\:({\tt is-nil}\:l)\:\text{then}\:{\tt acc}\:\text{else}\:r\:({\tt tail}\:l)\:({\tt cons}\:({\tt head}\:l)\:{\tt acc}))$ $({\tt cons}\,\, 3\,\, ({\tt cons}\,\, 2\,\, ({\tt cons}\,\, 1\,\, {\tt nil}))\:{\tt nil})$\\
+
+        Usamos el valor de $F$:\\
+
+        $(\lambda f.\:(\lambda x\:f\:(\lambda y.\:(x\:x)\:y))\:(\lambda x.\:f\:(\lambda y.\:(x\:x)\:y)))\:(\lambda r\:l\:{\tt acc}.\:\text{if}\:({\tt is-nil}\:l)\:\text{then}\:{\tt acc}\:\text{else}\:r({\tt tail}\:l)\:({\tt cons}\:({\tt head}\:l)\:{\tt acc}))\\
+        ({\tt cons}\,\, 3\,\, ({\tt cons}\,\, 2\,\, ({\tt cons}\,\, 1\,\, {\tt nil}))\:{\tt nil})$\\
+
+        Realizamos una reducción beta:\\
+        
+        $(\lambda x. \:(\lambda r\:l\:{\tt acc}.\:\text{if}\:({\tt is-nil}\:l)\:\text{then}\:{\tt acc}\:\text{else}\:r({\tt tail}\:l)\:({\tt cons}\:({\tt head}\:l)\:{\tt acc}))\:(\lambda y.\:(x\:x)\:y))\:(\lambda x.\:(\lambda r\:l\:{\tt acc}.\:\text{if}\:({\tt is-nil}\:l)\:\\
+        \text{then}\:{\tt acc}\: \text{else}\:r\:({\tt tail}\:l)({\tt cons}\:({\tt head}\:l)\:{\tt acc}))\:(\lambda y.\:(x\:x)\:y)\:({\tt cons}\,\, 3\,\, ({\tt cons}\,\, 2\,\, ({\tt cons}\,\, 1\,\, {\tt nil}))\:{\tt nil})$\\
+
+        Continuamos realizando reducciones beta:
+
+        $(\lambda r \: l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: {\tt acc} \: \text{else} \: r \: ({\tt tail} \: l) \: ({\tt cons} \: ({\tt head} \: l) \: {\tt acc})) \: (\lambda y. \: ((\lambda x. \: (\lambda r \: l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \\ \text{then} \: {\tt acc} \: \text{else} \: r \: ({\tt tail} \: l) \: ({\tt cons} \: ({\tt head} \: l) \: {\tt acc})) \: (\lambda y. \: (x \: x) \: y)) \: (\lambda x. \: (\lambda r \: l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: {\tt acc} \: \text{else} \: r \: ({\tt tail} \: l) \\ ({\tt cons} \: ({\tt head} \: l) \: {\tt acc})) \: (\lambda y. \: (x \: x) \: y))) \: ({\tt cons} \: 3 \: ({\tt cons} \: 2 \: ({\tt cons} \: 1 \: {\tt nil})) \: {\tt nil})$\\
+
+        Ahora aplicamos el valor de $\lambda y.$ $((\lambda x. \: (\lambda r \: l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: {\tt acc} \: \text{else} \: r \: ({\tt tail} \: l) \: ({\tt cons} \: ({\tt head} \: l) \: {\tt acc})) \\ (\lambda y. \: (x \: x) \: y)) \: (\lambda x. \: (\lambda r \: l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: {\tt acc} \: \text{else} \: r \: ({\tt tail} \: l) \: ({\tt cons} \: ({\tt head} \: l) \: {\tt acc})) \: (\lambda y. \: (x \: x) \: y))$ en \\ $\lambda x. \: (\lambda r \: l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: {\tt acc} \: \text{else} \: r \: ({\tt tail} \: l) \: ({\tt cons} \: ({\tt head} \: l) \: {\tt acc})) \: (\lambda y. \: (x \: x) \: y)$:\\
+
+        $(\lambda r \: l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: {\tt acc} \: \text{else} \: r \: ({\tt tail} \: l) \: ({\tt cons} \: ({\tt head} \: l) \: {\tt acc})) \: ((\lambda x. \: (\lambda r \: l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: {\tt acc} \: \text{else} \: r \\ ({\tt tail} \: l) \: ({\tt cons} \: ({\tt head} \: l) \: {\tt acc})) \: (\lambda y. \: (x \: x) \: y)) \: (\lambda x. \: (\lambda r \: l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: {\tt acc} \: \text{else} \: r \: ({\tt tail} \: l) \: ({\tt cons} \: ({\tt head} \: l) \: {\tt acc})) \\ (\lambda y. \: (x \: x) \: y))) \: ({\tt cons} \: 3 \: ({\tt cons} \: 2 \: ({\tt cons} \: 1 \: {\tt nil})) \: {\tt nil})$\\
+
+        Continuamos realizando reducciones beta:\\
+
+        $(\lambda r \: l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: {\tt acc} \: \text{else} \: r \: ({\tt tail} \: l) \: ({\tt cons} \: ({\tt head} \: l) \: {\tt acc})) \: ((\lambda x. \: (\lambda r \: l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: {\tt acc} \: \text{else} \: r \\ ({\tt tail} \: l) \: ({\tt cons} \: ({\tt head} \: l) \: {\tt acc})) \: (\lambda y. \: (x \: x) \: y)) \: (\lambda x. \: (\lambda r \: l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: {\tt acc} \: \text{else} \: r \: ({\tt tail} \: l) \: ({\tt cons} \: ({\tt head} \: l) \: {\tt acc})) \\ (\lambda y. \: (x \: x) \: y))) \: ({\tt cons} \: 3 \: ({\tt cons} \: 2 \: ({\tt cons} \: 1 \: {\tt nil})) \: {\tt nil})$ \\ 
+        
+        $(\lambda r \: l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: {\tt acc} \: \text{else} \: r \: ({\tt tail} \: l) \: ({\tt cons} \: ({\tt head} \: l) \: {\tt acc})) \: ((\lambda r \: l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: acc \: \text{else} \: r \\ ({\tt tail} \: l) \: ({\tt cons} \: ({\tt head} \: l) \: {\tt acc})) \: (\lambda y. \: ((\lambda x. \: (\lambda r \: l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: {\tt acc} \: \text{else} \: r \: ({\tt tail} \: l) \: ({\tt cons} \: ({\tt head} \: l) \: {\tt acc})) \\ (\lambda y. \: (x \: x) \: y)) \: (\lambda x. \: (\lambda r \: l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: {\tt acc} \: \text{else} \: r \: ({\tt tail} \: l) \: ({\tt cons} \: ({\tt head} \: l) \: {\tt acc})) \: (\lambda y. \: (x \: x) \: y)))$ \\ 
+        
+        $(\lambda r \: l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: {\tt acc} \: \text{else} \: r \: ({\tt tail} \: l) \: ({\tt cons} \: ({\tt head} \: l) \: {\tt acc})) \: (\lambda r \: l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: {\tt acc} \: \text{else} \: r \\ ({\tt tail} \: l) \: ({\tt cons} \: ({\tt head} \: l) \: {\tt acc}))$\\
+
+        Ahora, realizamos una reducción beta más en la parte superior:
+
+        $(\lambda r \: l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: {\tt acc} \: \text{else} \: r \: ({\tt tail} \: l) \: ({\tt cons} \: ({\tt head} \: l) \: {\tt acc})) \: (\lambda r \: l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: {\tt acc} \: \text{else} \: r \\ ({\tt tail} \: l) \: ({\tt cons} \: ({\tt head} \: l) \: {\tt acc}))$\\ 
+        
+        $\rightarrow (\lambda l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: {\tt acc} \: \text{else} \: (\lambda r \: l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: {\tt acc} \: \text{else} \: r \: ({\tt tail} \: l) \: ({\tt cons} \: ({\tt head} \: l) \: {\tt acc})) \\ ({\tt tail} \: l) \: ({\tt cons} \: ({\tt head} \: l) \: {\tt acc}))$ \\ 
+        
+        $\rightarrow (\lambda l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: {\tt acc} \: \text{else} \: (\lambda r \: l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: {\tt acc} \: \text{else} \: (\lambda l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: {\tt acc} \: \text{else} \\ (\lambda r \: l \: {\tt acc}. \: \text{if} \: ({\tt is-nil} \: l) \: \text{then} \: {\tt acc} \: \text{else} \: r \: ({\tt tail} \: l) \: ({\tt cons} \: ({\tt head} \: l) \: {\tt acc})) \: ({\tt tail} \: l) \: ({\tt cons} \: ({\tt head} \: l) \: {\tt acc})) \: ({\tt tail} \: l) \\ ({\tt cons} \: ({\tt head} \: l) \: {\tt acc}))$ \\ 
+        
+        $\rightarrow$ ...seguimos reduciendo\\
+
+        Apartir de este punto, a expresión se vuelve recursiva, y la reducción continúa de manera similar. Cada vez que se reduce, se aplica la lambda a sus argumentos correspondientes, entonces Continuamos reduciendo y aplicando las reglas hasta que finalmente llegamos a que:
+ 
+        \[{\tt reverse}\,\, ({\tt cons}\,\, 3\,\, ({\tt cons}\,\, 2\,\, ({\tt cons}\,\, 1\,\, {\tt nil}))) \to^\star_\beta ({\tt cons}\,\, 1\,\, ({\tt cons}\,\, 2\,\, ({\tt cons}\,\, 3\,\, {\tt nil}))).\]
+
+        Por lo tanto que la función {\tt reverse} propuesta invierte la lista correctamente.\\
 
         \item Considera la siguiente definición de un lenguaje de números naturales, cuya sintaxis se define con las siguientes reglas:
 
@@ -268,8 +481,83 @@
         \]
 
         \begin{enumerate}
-            \item Diseña una semántica estática para el lenguaje que defina un sistema de tipos para los naturales con los tipos ${\sf Even}$ y ${\sf Odd}$, estos tipos nos indican si una expresión $n$ del lenguaje define un número natural par o impar.
-            \item Con la semántica definida en el inciso anterior y la semántica operacional dada en el ejercicio, indica si el lenguaje cumple con ser seguro, es decir, si cumple las propiedades de: {\it unicidad}, {\it preservación} y ${\it progreso}$. No es necesario dar una demostración formal de las propiedades sino una justificación del por qué se cumplen o no cada una de estas propiedades.
+            \item Diseña una semántica estática para el lenguaje que defina un sistema de tipos para los naturales con los tipos ${\sf Par}$ y ${\sf Odd}$, estos tipos nos indican si una expresión $n$ del lenguaje define un número natural par o impar.
+            Definimos dos tipos: ${\sf Par}$ para números naturales pares y ${\sf Odd}$ para números naturales impares. Las reglas de tipado son las siguientes:
+
+            \begin{enumerate}
+                \item Para el número natural cero ($0$), asignamos el tipo ${\sf Par}$.
+                \[
+                \begin{array}{c}
+                    \frac{}{0 : {\sf Par}}
+                \end{array}
+                \]
+                \item Para una expresión $(s\;n)$, donde $n$ es de tipo ${\sf Par}$, asignamos el tipo ${\sf Impar}$.
+                \[
+                \begin{array}{c}
+                    \frac{n : {\sf Par}}{(s\;n) : {\sf Impar}}
+                \end{array}
+                \]
+
+                \item Para una expresión $(s\;n)$, donde $n$ es de tipo ${\sf Impar}$, asignamos el tipo ${\sf Par}$.
+                \[
+                \begin{array}{c}
+                    \frac{n : {\sf Impar}}{(s\;n) : {\sf Par}}
+                \end{array}
+                \]
+
+                \item Para una expresión $(p\;n)$, donde $n$ es de tipo ${\sf Par}$, asignamos el tipo ${\sf Impar}$.
+                \[
+                \begin{array}{c}
+                    \frac{n : {\sf Par}}{(p\;n) : {\sf Impar}}
+                \end{array}
+                \]
+
+                \item Para una expresión $(p\;n)$, donde $n$ es de tipo ${\sf Impar}$, asignamos el tipo ${\sf Par}$.
+                \[
+                \begin{array}{c}
+                    \frac{n : {\sf Impar}}{(p\;n) : {\sf Par}}
+                \end{array}
+                \]
+            \end{enumerate}
+
+            Estas reglas de tipado establecen las condiciones bajo las cuales una expresión se considera de tipo ${\sf Par}$ o ${\sf Impar}$. En resumen:
+
+            \begin{itemize}
+                \item El número natural cero es de tipo ${\sf Par}$.
+                \item Si tomamos el sucesor de un número de tipo ${\sf Par}$, el resultado es de tipo ${\sf Impar}$.
+                \item Si tomamos el sucesor de un número de tipo ${\sf Impar}$, el resultado es de tipo ${\sf Par}$.
+                \item Si tomamos el predecesor de un número de tipo ${\sf Par}$, el resultado es de tipo ${\sf Impar}$.
+                \item Si tomamos el predecesor de un número de tipo ${\sf Impar}$, el resultado es de tipo ${\sf Par}$.
+            \end{itemize}
+
+            \item Con la semántica definida en el inciso anterior y la semántica operacional dada en el ejercicio, indica si el lenguaje cumple con ser seguro, es decir, si cumple las propiedades de: {\it unicidad}, {\it preservación} y ${\it progreso}$. No es necesario dar una demostración formal de las propiedades sino una justificación del por qué se cumplen o no cada una de estas propiedades.\\
+
+            Para evaluar si el lenguaje cumple con las propiedades de seguridad (unicidad, preservación y progreso), evaluaremos cada una de ellas en base a las definiciones de la semántica estática y operacional:
+
+            \begin{enumerate}
+                \item \textbf{Unicidad (Unicity):} En un lenguaje seguro, para cada expresión bien tipada, existe una única forma de reducirla o evaluarla.
+                \begin{itemize}
+                    \item[-] En este lenguaje, las reglas de tipado nos permiten asignar tipos ${\sf Par}$ o ${\sf Impar}$ a las expresiones, lo que significa que cada expresión bien tipada tiene un tipo único asignado de acuerdo a las reglas estáticas.
+                    \item[-] Las reglas de semántica operacional también definen de manera única cómo las expresiones se reducen o evalúan. Por ejemplo, las reglas para el sucesor $(s\;n)$ establecen claramente cómo se reduce: si $n$ es de tipo ${\sf Par}$, se convierte en ${\sf Impar}$ y viceversa. Las reglas para el predecesor $(p\;n)$ también son únicas y deterministas.
+                \end{itemize}
+                Por lo tanto el lenguaje cumple con la propiedad de unicidad.
+
+                \item \textbf{Preservación (Preservation):} En un lenguaje seguro, si una expresión tiene un tipo en un paso de reducción, entonces la expresión resultante también tiene ese tipo.
+                \begin{itemize}
+                    \item[-] Las reglas de tipado están diseñadas para garantizar que la asignación de tipos se preserve durante la reducción. Por ejemplo, si una expresión tiene el tipo ${\sf Par}$ y se reduce según la regla de sucesor, el resultado tendrá el tipo ${\sf Impar}$, lo que demuestra que el tipo se preserva durante la reducción.
+
+                    \item[-] Las reglas de semántica operacional también se diseñan para preservar los tipos asignados. Por ejemplo, la regla para el predecesor $(p\;(s\;n))$ establece que se reduce a $n$ y, por lo tanto, el tipo se preserva.
+                \end{itemize}
+                Por lo tanto, el lenguaje cumple con la propiedad de preservación
+
+                \item \textbf{Progreso (Progress):} En un lenguaje seguro, una expresión bien tipada no se atasca y siempre puede avanzar en la reducción (o finalizar en un valor).
+                \begin{itemize}
+                    \item[-] En este lenguaje, las reglas de semántica operacional garantizan el progreso. Por ejemplo, la regla para el predecesor $(p\;0)$ establece que se reduce a $0$, que es un valor. La regla para el sucesor $(s\;n)$ garantiza que si $n$ es bien tipado, entonces $(s\;n)$ también puede reducirse a una nueva expresión.
+
+                    \item[-]Dado que las reglas operacionales aseguran que una expresión bien tipada siempre puede avanzar en la reducción (o llegar a un valor), el lenguaje cumple con la propiedad de progreso.
+                \end{itemize}
+            \end{enumerate}
+            Por lo que el lenguaje cumple con las propiedades de unicidad, preservación y progreso, lo que lo hace seguro.
         \end{enumerate}
     \end{enumerate}
 \end{document}
