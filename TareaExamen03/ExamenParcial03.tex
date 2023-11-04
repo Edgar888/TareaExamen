@@ -1,0 +1,102 @@
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,mexico]{babel}
+\usepackage{listings}
+\usepackage{amsmath}
+\setlength{\textwidth}{18cm}
+\setlength{\oddsidemargin}{-1cm}
+\setlength{\headsep}{1cm}
+\setlength{\voffset}{0cm}
+\setlength{\topmargin}{0cm}
+\setlength{\headheight}{0cm}
+\usepackage{tikz}
+\usepackage{semantic}
+\usepackage{url}
+\usetikzlibrary{positioning}
+\usetikzlibrary{calc,arrows}
+\usepackage{multicol}
+\usepackage{lipsum} 
+\usepackage{multirow}
+
+
+\usepackage{amsmath}
+
+\usepackage{graphicx}
+\usepackage{forest}
+\usepackage{tikz-qtree}
+\usepackage{xcolor}
+
+\begin{document}
+\pagecolor{black}
+\color{white}
+
+%%%%%% ENCABEZADO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \colorbox{black}{
+        \begin{minipage}[t]{0.16 \textwidth}
+           \begin{flushright}
+            \includegraphics[width=1in]{UNAM.png}
+           \end{flushright}
+        \end{minipage}
+        \begin{minipage}[H]{0.62 \textwidth}
+            \begin{center}
+                {\large \textsc{Universdad Nacional Autónoma de México}}
+                \vspace{0.25cm}
+                \\
+                { \large \textbf{Lenguajes de Programacion\\ Examen Parcial III}}                
+                \textbf{}
+                \begin{multicols}{2}
+                \begin{flushleft}
+                \begin{itemize}
+                    % NOMBRES DE INTEGRANTES
+                    \item  \small Edgar Montiel Ledesma\\ 317317794
+    
+                    \item \footnotesize Carlos Daniel Cortes Jimenez\\ 420004846
+                \end{itemize}
+                \end{flushleft}
+                \vspace{0.25cm}
+                \end{multicols} 
+            \end{center}
+            \vspace{0.05cm}
+        \end{minipage}
+        \begin{minipage}[t]{0.16 \textwidth}
+            \begin{flushleft}
+                \includegraphics[width=1in]{EFC.png}
+            \end{flushleft}
+        \end{minipage}
+    }
+    
+    \begin{tikzpicture}
+        \draw[thick] (-6.5,0)--(11.2,0);
+    \end{tikzpicture}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \section{Problema}
+    El constructor alternativo if se puede generalizar mediante un operador case definido como sigue:
+
+        \begin{itemize}
+            \item[ ] e ::= . . . \,| case g end
+            \item[ ] g ::= e1 $\Rightarrow$ e2 \,| g ; g 
+        \end{itemize}
+
+    Una expresion de la forma e1 $\Rightarrow$ e2 se conoce como expresion resguardada, siendo la expresion e1 una expresion booleana llamada guardia. Un constructor case se evalua como sigue: recorrer las expresiones resguardadas ei $\Rightarrow$ ej en orden de izquierda a derecha (respectivamente de arriba a abajo), hasta hallar la primera expresion resguardada, digamos ek $\Rightarrow$ el tal que ek $\Rightarrow$ $*$ true, en cuyo caso se procede a evaluar el, cuyo valor final es tambien el resultado de la evaluacion de la expresion case. Por ejemplo considerese el siguiente programa:
+
+        \begin{itemize}
+            \item[ ] case x=0 => x ;
+            \item[ ] x>2 => xˆ2 ;
+            \item[ ] x>0 => x-2 ;
+            \item[ ] x<0 => x+2
+            \item[ ] end
+        \end{itemize}
+
+    \section{Preguntas}
+    \begin{itemize}
+        \item[1.] Define la sintaxis abstracta del operador case.
+        \item[2.] Define las reglas de transicion para modelar la semantica operacional del nuevo operador case.
+        \item[3.] Define las reglas de tipado para la semantica estatica del operador case.
+        \item[4.] Extiende el algoritmo de inferencia de tipos de la nota 8, agregando las reglas de generacion de restricciones para el operador case.
+        \item[5.] Explica por que el operador case es azucar sintactica en el lenguaje.
+    \end{itemize}
+
+\end{document}
