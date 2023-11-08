@@ -117,8 +117,28 @@
         \end{itemize}
         
         \item[3.] Define las reglas de tipado para la semantica estatica del operador case.
+        \begin{itemize}
+            \item[ ] En cada expresión resguardada (como e1 $\rightarrow$ e2), la parte e1 debe ser una expresión de tipo booleano, mientras que la parte e2 puede tener cualquier tipo.
+
+            \item[ ] El resultado obtenido en la parte e2 de cada expresión resguardada debe ser consistente en todas las ramas. Esto significa que si una rama produce un valor de tipo T, entonces todas las demás ramas también deben producir un valor de tipo T.
+
+            \item[ ] El resultado final del operador case debe tener el mismo tipo que el resultado producido en la parte e2 de las expresiones resguardadas. En otras palabras, si todas las ramas generan valores de tipo T, el resultado del case también debe ser de tipo T.
+        \end{itemize}
         \item[4.] Extiende el algoritmo de inferencia de tipos de la nota 8, agregando las reglas de generacion de restricciones para el operador case.
+        \begin{itemize}
+            \item[1.] Para cada expresión resguardada e1 $\rightarrow$ e2 en g:
+
+            \item Genera una restricción que requiere que e1 tenga tipo booleano.
+            \item Registra que e2 debe tener un tipo polimórfico, es decir, aún no se sabe su tipo específico.
+
+            \item[2.] Para el resultado final del case (que será el tipo de la expresión completa case(t, g)):
+
+            \item[ ] Registra que el tipo del resultado final debe ser el mismo que el tipo de e2 para al menos una de las ramas. Puedes hacer esto registrando una restricción de igualdad entre el tipo del resultado final y el tipo de e2 en una de las ramas.
+        \end{itemize}
         \item[5.] Explica por que el operador case es azucar sintactica en el lenguaje.
+        \begin{itemize}
+            \item[ ] El operador case se considera azúcar sintáctica debido a su enfoque en mejorar la legibilidad y comodidad en la escritura de código. En muchos lenguajes, el operador case se utiliza para implementar estructuras de control de flujo condicional, como las declaraciones if o switch. Sin embargo, desde el punto de vista semántico, estas estructuras ya son suficientes para expresar condiciones y ejecutar código condicional. Por lo tanto, el operador case se puede percibir como una forma alternativa o más clara de expresar la misma lógica, simplificando la escritura del código. 
+        \end{itemize}
     \end{itemize}
 
 \end{document}
