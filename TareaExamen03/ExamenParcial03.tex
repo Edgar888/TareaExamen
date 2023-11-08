@@ -83,10 +83,10 @@
     Una expresion de la forma e1 $\Rightarrow$ e2 se conoce como expresion resguardada, siendo la expresion e1 una expresion booleana llamada guardia. Un constructor case se evalua como sigue: recorrer las expresiones resguardadas ei $\Rightarrow$ ej en orden de izquierda a derecha (respectivamente de arriba a abajo), hasta hallar la primera expresion resguardada, digamos ek $\Rightarrow$ el tal que ek $\Rightarrow$ $*$ true, en cuyo caso se procede a evaluar el, cuyo valor final es tambien el resultado de la evaluacion de la expresion case. Por ejemplo considerese el siguiente programa:
 
         \begin{itemize}
-            \item[ ] case x=0 => x ;
-            \item[ ] x>2 => xˆ2 ;
-            \item[ ] x>0 => x-2 ;
-            \item[ ] x<0 => x+2
+            \item[ ] case x=0 $\Rightarrow$ x ;
+            \item[ ] x$>$2 $\Rightarrow$ xˆ2 ;
+            \item[ ] x$>$0 $\Rightarrow$ x-2 ;
+            \item[ ] x$<$0 $\Rightarrow$ x+2
             \item[ ] end
         \end{itemize}
 
