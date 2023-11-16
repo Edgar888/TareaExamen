@@ -20,9 +20,7 @@
 \usepackage{multicol}
 \usepackage{lipsum} 
 \usepackage{multirow}
-
-
-\usepackage{amsmath}
+\usepackage{amssymb}
 
 \usepackage{graphicx}
 \usepackage{forest}
@@ -98,13 +96,13 @@
             \item[c)] ¿Es posible definir el operador for como azucar sintactica dentro del lenguaje While? justifica tu respuesta.
         \end{itemize}
 
-        \item[3.] Decimos que dos programas en el lenguaje While son equivalentes (c1 ≡w c2) si y solo sı la ejecucion de ambos programas resulta en el mismo estado, es decir, si para todo estado de las variables σ, ♦ ≻ ⟨c1, σ⟩ −→⋆ W ♦ ≺ σ′ y ♦ ≻ ⟨c2, σ⟩ −→⋆W ♦ ≺ σ′ entonces c1 ≡w c2.\\
+        \item[3.] Decimos que dos programas en el lenguaje While son equivalentes (c1 $\equiv$w c2) si y solo sı la ejecucion de ambos programas resulta en el mismo estado, es decir, si para todo estado de las variables $\sigma$, $\blacklozenge$ $\succ$  ⟨c1, $\sigma$⟩ $\rightarrow{*}$ W $\blacklozenge$ $\prec$ $\sigma'$ y $\blacklozenge$ $\succ$ ⟨c2, $\sigma$⟩ $\longrightarrow*W$ $\blacklozenge$ $\prec$ $\sigma'$ entonces c1 $\equiv$w c2.\\
         Con la definicion de equivalencia anterior, demuestra o da un contraejemplo de lo siguiente:
         \begin{itemize}
-            \item[a)] ≡w realmente es una relacion de equivalencia. Esto es, demuestra que la relacion ≡w es transitiva, reflexiva y simetrica.
-            \item[b)] c;skip ≡w c
-            \item[c)] c1; c2 ≡w c2; c1
-            \item[d)] c1; (c2; c3) ≡w (c1; c2); c3 
+            \item[a)] $\equiv$w realmente es una relacion de equivalencia. Esto es, demuestra que la relacion $\equiv$w es transitiva, reflexiva y simetrica.
+            \item[b)] c;skip $\equiv$w c
+            \item[c)] c1; c2 $\equiv$w c2; c1
+            \item[d)] c1; (c2; c3) $\equiv$w (c1; c2); c3 
         \end{itemize}
     \end{itemize}
 
