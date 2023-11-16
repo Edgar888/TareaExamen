@@ -74,15 +74,57 @@
         \item[1.] Considera el siguiente programa en el lenguaje While :
         \begin{itemize}
             \item[ ] new z = 0;
-            \item[ ] \, while (y < x + 1) do
-            \item[ ] \, (z := z + 1;
-            \item[ ] \, x := x - y)
+            \item[ ] \, while (y $<$ x $+$ 1) do
+            \item[ ] \, (z $:=$ z $+$ 1;
+            \item[ ] \, x $:=$ x $-$ y)
             \item[ ] end
         \end{itemize}
 
         \begin{itemize}
-            \item[a)] Ejecuta el programa en el estado en el que $\sigma$(x) = 17 y $\sigma$(y) = 5 ¿Cual es el estado resultante de la evaluacion?
-            \item[b)] Da un estado $\sigma$ tal que si se evalua el programa anterior con dicho estado la evaluacion se ciclarıa infinitamente.
+            \item[a)] Ejecuta el programa en el estado en el que $\sigma$(x) = 17 y $\sigma$(y) = 5 ¿Cual es el estado resultante de la evaluacion?\\
+            Inicialmente, tenemos $\sigma$(x) = 17 y $\sigma$(y) = 5. Vamos a ejecutar el programa paso a paso:\\
+
+            Iteración 1:
+            \begin{itemize}
+                \item z := 0
+                \item y $<$ x + 1 es verdadero ya que 5 $<$ 17 + 1
+                \item z := z + 1; z=1
+                \item x := x - y; x=12
+            \end{itemize}
+
+            Iteración 2:
+            \begin{itemize}
+                \item y $<$ x + 1 es verdadero ya que 5 $<$ 12 + 1
+                \item z := z + 1; z=2
+                \item x := x - y; x=7
+            \end{itemize}
+
+            Iteración 3:
+            \begin{itemize}
+                \item y < x + 1 es verdadero ya que 5 < 7 + 1
+                \item z := z + 1; z=3
+                \item x := x - y; x=2
+            \end{itemize}
+
+            Iteración 4:
+            \begin{itemize}
+                \item y < x + 1 es verdadero ya que 5 < 2 + 1
+                \item z := z + 1; z=4
+                \item x := x - y; x=-3
+            \end{itemize}
+
+            Iteración 5:
+            \begin{itemize}
+                \item y < x + 1 es falso ya que 5 >= -3 + 1
+            \end{itemize}
+
+            El estado resultante es $\sigma$(x) = -3 y $\sigma$(y) = 5.
+
+            \item[b)] Da un estado $\sigma$ tal que si se evalua el programa anterior con dicho estado la evaluacion se ciclarıa infinitamente.\\
+
+            Para que el programa entre en un bucle infinito, necesitamos un estado en el que la condición del bucle siempre sea verdadera. La condición del bucle es $y<x+1$. Por lo tanto, si tenemos y igual a cualquier número mayor que x+1, el bucle se ejecutará infinitamente.\\
+
+            Un ejemplo de un estado que causaría una ejecución infinita podría ser $\sigma$(x) = 5 y $\sigma$(y) = 10. En este caso, la condición $y<x+1$ siempre será verdadera $(10<5+1)$, y el bucle se ejecutará sin llegar a una condición de salida.
         \end{itemize}
 
         \item[2.] Extiende el lenguaje While con el operador:
