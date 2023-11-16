@@ -133,9 +133,43 @@
         \end{center}
         esto es:
         \begin{itemize}
-            \item[a)] Modifica la estructura de la maquina W (agregando marcos, estados o transiciones) para evaluar la expresion for.
-            \item[b)] Da las reglas de semantica estatica para verificacion de tipos para el nuevo operador for.
-            \item[c)] ¿Es posible definir el operador for como azucar sintactica dentro del lenguaje While? justifica tu respuesta.
+            \item[a)] Modifica la estructura de la maquina W (agregando marcos, estados o transiciones) para evaluar la expresion for.\\
+
+            La máquina W, que se utiliza para evaluar expresiones en el lenguaje While, podría modificarse para incorporar el operador for. La estructura general de la máquina W podría ampliarse para manejar la nueva construcción for de la siguiente manera:
+
+            \begin{itemize}
+                \item[1.] Marcos de pila adicionales: Se pueden agregar marcos de pila para manejar la ejecución del bucle for. Estos marcos contendrían información sobre la variable de iteración, los límites del bucle y la declaración dentro del bucle.
+
+                \item[2.] Instrucciones adicionales: Se agregarían instrucciones específicas para manejar la inicialización de la variable de iteración, la verificación de la condición del bucle, la ejecución del cuerpo del bucle y la actualización de la variable de iteración.
+            \end{itemize}
+
+            La máquina W podría tener nuevas instrucciones como FOR\_START, FOR\_CONDITION, FOR\_BODY, y FOR\_UPDATE para gestionar las diferentes partes de la construcción for.
+
+            \item[b)] Da las reglas de semantica estatica para verificacion de tipos para el nuevo operador for.\\
+
+            Para el nuevo operador for, se necesitarían reglas de verificación de tipos para garantizar que las expresiones a1, a2 y c sean de tipos apropiados.\\
+
+            Las reglas podrían incluir:
+
+            \begin{itemize}
+                \item a1 y a2 deben ser expresiones enteras.
+                \item c debe ser una expresión que cumpla con ciertos requisitos para ser ejecutada en un bucle.
+            \end{itemize}
+
+            \item[c)] ¿Es posible definir el operador for como azucar sintactica dentro del lenguaje While? justifica tu respuesta.\\
+
+            Sí, es posible definir el operador for como azúcar sintáctica dentro del lenguaje While. La azúcar sintáctica es una forma de escribir código que se traduce a una forma más básica del lenguaje. En este caso, podríamos definir la construcción for en términos de construcciones más básicas del lenguaje While, como while y asignaciones.\\ 
+
+            Por ejemplo, la construcción for x := a1 to a2 do c podría ser traducida a algo similar a:
+
+            \begin{itemize}
+                \item[ ]    \{
+                \item[ ] \, \,       c;
+                \item[ ] \, \,       x := x + 1;
+                \item[ ]    \}
+            \end{itemize}
+
+            En este caso, la estructura for se traduce a un bucle while con una asignación adicional para actualizar la variable de iteración. Esta traducción permite que el operador for sea implementado en términos de las construcciones fundamentales del lenguaje While. 
         \end{itemize}
 
         \item[3.] Decimos que dos programas en el lenguaje While son equivalentes (c1 $\equiv$w c2) si y solo sı la ejecucion de ambos programas resulta en el mismo estado, es decir, si para todo estado de las variables $\sigma$, $\blacklozenge$ $\succ$  ⟨c1, $\sigma$⟩ $\rightarrow{*}$ W $\blacklozenge$ $\prec$ $\sigma'$ y $\blacklozenge$ $\succ$ ⟨c2, $\sigma$⟩ $\longrightarrow*W$ $\blacklozenge$ $\prec$ $\sigma'$ entonces c1 $\equiv$w c2.\\
