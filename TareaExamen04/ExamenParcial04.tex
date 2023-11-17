@@ -172,13 +172,106 @@
             En este caso, la estructura for se traduce a un bucle while con una asignación adicional para actualizar la variable de iteración. Esta traducción permite que el operador for sea implementado en términos de las construcciones fundamentales del lenguaje While. 
         \end{itemize}
 
-        \item[3.] Decimos que dos programas en el lenguaje While son equivalentes (c1 $\equiv$w c2) si y solo sı la ejecucion de ambos programas resulta en el mismo estado, es decir, si para todo estado de las variables $\sigma$, $\blacklozenge$ $\succ$  ⟨c1, $\sigma$⟩ $\rightarrow{*}$ W $\blacklozenge$ $\prec$ $\sigma'$ y $\blacklozenge$ $\succ$ ⟨c2, $\sigma$⟩ $\longrightarrow*W$ $\blacklozenge$ $\prec$ $\sigma'$ entonces c1 $\equiv$w c2.\\
+        \item[3.] Decimos que dos programas en el lenguaje While son equivalentes ($c_1$ $\equiv_w$ $c_2$) si y solo sı la ejecucion de ambos programas resulta en el mismo estado, es decir, si para todo estado de las variables $\sigma$, $\blacklozenge$ $\succ$  ⟨$c_1$, $\sigma$⟩ $\longrightarrow^{*}_{W}$ $\blacklozenge$ $\prec$ $\sigma'$ y $\blacklozenge$ $\succ$ ⟨$c_2$, $\sigma$⟩ $\longrightarrow^{*}_{W}$ $\blacklozenge$ $\prec$ $\sigma'$ entonces $c_1$ $\equiv_w$ $c_2$.\\
         Con la definicion de equivalencia anterior, demuestra o da un contraejemplo de lo siguiente:
         \begin{itemize}
-            \item[a)] $\equiv$w realmente es una relacion de equivalencia. Esto es, demuestra que la relacion $\equiv$w es transitiva, reflexiva y simetrica.
-            \item[b)] c;skip $\equiv$w c
-            \item[c)] c1; c2 $\equiv$w c2; c1
-            \item[d)] c1; (c2; c3) $\equiv$w (c1; c2); c3 
+            \item[a)] $\equiv_w$ realmente es una relacion de equivalencia. Esto es, demuestra que la relacion $\equiv_w$ es transitiva, reflexiva y simetrica.\\
+
+            Para demostrar que $\equiv_w$ es una relación de equivalencia, necesitamos probar tres propiedades: reflexividad, simetría y transitividad.\\
+
+            \textbf{Reflexividad}: Para cualquier programa $c$ en While, $c$ $\equiv_w$ $c$.
+
+            \begin{itemize}
+                \item Para demostrar la reflexividad, consideremos un estado $\sigma$ arbitrario.
+                \begin{itemize}
+                    \item Si $\blacklozenge$ $\succ$  ⟨$c$, $\sigma$⟩ $\longrightarrow^{*}_{W}$ $\blacklozenge$ $\prec$ $\sigma'$, entonces el mismo programa $c$ resulta en el estado $\sigma'$.
+
+                    \item Por lo tanto, $c$ $\equiv_w$ $c$, ya que ambos programas producen el mismo estado $\sigma'$.\\
+                \end{itemize}
+            \end{itemize}
+            
+            \textbf{Simetría}:  Si $c_1$ $\equiv_w$ $c_2$, entonces $c_2$ $\equiv_w$ $c_1$.
+
+            \begin{itemize}
+                \item Supongamos que para cualquier estado $\sigma$, $\blacklozenge$ $\succ$  ⟨$c_1$, $\sigma$⟩ $\longrightarrow^{*}_{W}$ $\blacklozenge$ $\prec$ $\sigma'$ y $\blacklozenge$ $\succ$ ⟨$c_2$, $\sigma$⟩ $\longrightarrow^{*}_{W}$ $\blacklozenge$ $\prec$ $\sigma'$.
+
+                \item Esto implica que $c_1$ y $c_2$ conducen al mismo estado $\sigma'$.
+
+                \item Si $c_1$ $\equiv_w$ $c_2$, entonces $c_2$ $\equiv_w$ $c_1$ debido a que ambos programas resultan en el mismo estado $\sigma'$.\\
+            \end{itemize}
+            
+            \textbf{Transitividad}: Si $c_1$ $\equiv_w$ $c_2$ y $c_2$ $\equiv_w$ $c_3$, entonces $c_1$ $\equiv_w$ $c_3$.
+
+                \begin{itemize}
+                    \item Supongamos que para cualquier estado $\sigma$, $\blacklozenge$ $\succ$  ⟨$c_1$, $\sigma$⟩ $\longrightarrow^{*}_{W}$ $\blacklozenge$ $\prec$ $\sigma'$ y $\blacklozenge$ $\succ$ ⟨$c_2$, $\sigma$⟩ $\longrightarrow^{*}_{W}$ $\blacklozenge$ $\prec$ $\sigma'$, también $\blacklozenge$ $\succ$  ⟨$c_2$, $\sigma$⟩ $\longrightarrow^{*}_{W}$ $\blacklozenge$ $\prec$ $\sigma''$ y $\blacklozenge$ $\succ$ ⟨$c_3$, $\sigma$⟩ $\longrightarrow^{*}_{W}$ $\blacklozenge$ $\prec$ $\sigma''$.
+
+                    \item Esto implica que $c_1$ y $c_2$ conducen al mismo estado $\sigma'$ y $c_2$ y $c_3$ conducen al mismo estado $\sigma''$.
+
+                    \item Por lo tanto, $c_1$ y $c_3$ producen el mismo estado $\sigma''$, lo que demuestra la transitividad de $\equiv_w$.
+                \end{itemize}
+
+                Entonces, podemos decir que $\equiv_w$ es una relación de equivalencia en el lenguaje While.\\
+            
+            \item[b)] $c$;{\sf skip} $\equiv_w$ $c$\\
+
+            Para probar que $c$;{\sf skip} $\equiv_w$ $c$ en el lenguaje While, necesitamos demostrar que para cualquier estado $\sigma$:
+
+            \begin{itemize}
+                \item[1.-] Si $\blacklozenge$ $\succ$  ⟨$c$, {\sf skip}, $\sigma$⟩ $\longrightarrow^{*}_{W}$ $\blacklozenge$ $\prec$ $\sigma'$, entonces $\blacklozenge$ $\succ$  ⟨$c$, $\sigma$⟩ $\longrightarrow^{*}_{W}$ $\blacklozenge$ $\prec$ $\sigma'$.
+
+                \item[2.-] Si $\blacklozenge$ $\succ$ ⟨$c$, $\sigma$⟩ $\longrightarrow^{*}_{W}$ $\blacklozenge$ $\prec$ $\sigma'$, entonces $\blacklozenge$ $\succ$ ⟨$c$, {\sf skip}, $\sigma$⟩ $\longrightarrow^{*}_{W}$ $\blacklozenge$ $\prec$ $\sigma'$.\\
+            \end{itemize}
+
+            Primero resolvemos 1:\\
+
+            Si $\blacklozenge$ $\succ$  ⟨$c$, {\sf skip}, $\sigma$⟩ $\longrightarrow^{*}_{W}$ $\blacklozenge$ $\prec$ $\sigma'$, esto significa que $\blacklozenge$ $\succ$  ⟨$c$, $\sigma$⟩ $\longrightarrow^{*}_{W}$ $\blacklozenge$ $\prec$ $\sigma'$. Esto se debe a que la semántica operacional de While establece que la ejecución de un comando "skip" no altera el estado. Por lo tanto, si ejecutamos $c$; {\sf skip} básicamente estamos ejecutando solo $c$, lo que lleva al mismo estado $\sigma'$.\\
+
+            Ahora resolvemos 2:\\
+
+            Si $\blacklozenge$ $\succ$ ⟨$c$, $\sigma$⟩ $\longrightarrow^{*}_{W}$ $\blacklozenge$ $\prec$ $\sigma'$, esto significa que $\blacklozenge$ $\succ$ ⟨$c$, {\sf skip}, $\sigma$⟩ $\longrightarrow^{*}_{W}$ $\blacklozenge$ $\prec$ $\sigma'$. Por lo tanto, si ejecutamos $c$ y luego {\sf skip}, el estado sigue siendo $\sigma'$, ya que {\sf skip} no realiza cambios en el estado.\\
+
+            Por lo que, si ejecutamos $c$;{\sf skip}, simplemente $c$ en el lenguaje While, se llega al mismo estado $\sigma'$. Por lo tanto $c$;{\sf skip} $\equiv_w$ $c$.\\
+            
+            \item[c)] $c_1$; $c_2$ $\equiv_w$ $c_2$; $c_1$\\
+
+            Para probar que $c_1$; $c_2$ $\equiv_w$ $c_2$; $c_1$ en el lenguaje While, necesitamos demostrar que para cualquier estado $\sigma$:
+
+            \begin{itemize}
+                \item[1.-] Si $\blacklozenge$ $\succ$  ⟨$c_1$, $c_2$, $\sigma$⟩ $\longrightarrow^{*}_{W}$ $\blacklozenge$ $\prec$ $\sigma'$, entonces $\blacklozenge$ $\succ$  ⟨$c_2$, $c_1$, $\sigma$⟩ $\longrightarrow^{*}_{W}$ $\blacklozenge$ $\prec$ $\sigma'$.
+
+                \item[2.-] Si $\blacklozenge$ $\succ$  ⟨$c_2$, $c_1$, $\sigma$⟩ $\longrightarrow^{*}_{W}$ $\blacklozenge$ $\prec$ $\sigma'$, entonces $\blacklozenge$ $\succ$  ⟨$c_1$, $c_2$, $\sigma$⟩ $\longrightarrow^{*}_{W}$ $\blacklozenge$ $\prec$ $\sigma'$.\\
+            \end{itemize}
+
+            Primero resolvemos 1:\\
+
+            Si $\blacklozenge$ $\succ$  ⟨$c_1$, $c_2$, $\sigma$⟩ $\longrightarrow^{*}_{W}$ $\blacklozenge$ $\prec$ $\sigma'$, entonces $\blacklozenge$ $\succ$  ⟨$c_2$, $c_1$, $\sigma$⟩ $\longrightarrow^{*}_{W}$ $\blacklozenge$ $\prec$ $\sigma'$. Esto se debe a la regla de la secuencia en la máquina W: cuando evaluamos una secuencia, primero evaluamos el primer comando y luego, si termina, evaluamos el segundo comando. Por lo tanto, al ejecutar $c_1$; $c_2$, $c_1$ se evalúa primero, seguido por $c_2$. En consecuencia, al intercambiar el orden de ejecución a $c_2$;$c_1$, ambos comandos se ejecutarán en el mismo estado $\sigma'$, ya que la secuencia no afecta el estado.\\
+
+            Ahora resolvemos 2:\\
+
+            Si $\blacklozenge$ $\succ$  ⟨$c_2$, $c_1$, $\sigma$⟩ $\longrightarrow^{*}_{W}$ $\blacklozenge$ $\prec$ $\sigma'$, entonces $\blacklozenge$ $\succ$  ⟨$c_1$, $c_2$, $\sigma$⟩ $\longrightarrow^{*}_{W}$ $\blacklozenge$ $\prec$ $\sigma'$. De manera similar al razonamiento anterior, intercambiar el orden de ejecución de $c_2$ y $c_1$ no afecta el estado $\sigma'$. La ejecución de $c_2$ seguido por $c_1$ o $c_1$ seguido por $c_2$ resultará en el mismo estado final $\sigma'$.\\
+
+            Por lo tanto, se cumple que $c_1$; $c_2$ $\equiv_w$ $c_2$; $c_1$ en el lenguaje While.\\
+            
+            \item[d)] $c_1$; ($c_2$; $c_3$) $\equiv_w$ ($c_1$; $c_2$); $c_3$ \\
+
+            Para probar que $c_1$; ($c_2$; $c_3$) $\equiv_w$ ($c_1$; $c_2$); $c_3$ en el lenguaje While, necesitamos verificar lo siguiente:\\
+
+            \begin{itemize}
+                \item[1.-] Si $\blacklozenge$ $\succ$  ⟨$c_1$;($c_2$;$c_3$), $\sigma$⟩ $\longrightarrow^{*}_{W}$ $\blacklozenge$ $\prec$ $\sigma'$, entonces $\blacklozenge$ $\succ$  ⟨($c_1$;$c_2$);$c_3$, $\sigma$⟩ $\longrightarrow^{*}_{W}$ $\blacklozenge$ $\prec$ $\sigma'$.
+
+                \item[2.-] Si $\blacklozenge$ $\succ$  ⟨($c_1$;$c_2$);$c_3$, $\sigma$⟩ $\longrightarrow^{*}_{W}$ $\blacklozenge$ $\prec$ $\sigma'$, entonces $\blacklozenge$ $\succ$  ⟨$c_1$;($c_2$;$c_3$), $\sigma$⟩ $\longrightarrow^{*}_{W}$ $\blacklozenge$ $\prec$ $\sigma'$.\\
+            \end{itemize}
+
+            Primero resolvemos 1:\\
+
+            Si $\blacklozenge$ $\succ$  ⟨$c_1$;($c_2$;$c_3$), $\sigma$⟩ $\longrightarrow^{*}_{W}$ $\blacklozenge$ $\prec$ $\sigma'$, entonces $\blacklozenge$ $\succ$  ⟨($c_1$;$c_2$);$c_3$, $\sigma$⟩ $\longrightarrow^{*}_{W}$ $\blacklozenge$ $\prec$ $\sigma'$. Esta relación se mantiene debido a la asociatividad de la secuencia en la máquina W. Independientemente de cómo se agrupen los comandos dentro de una secuencia, si todos se ejecutan en secuencia, el estado final será el mismo. Por lo tanto, ejecutar primero $c_1$ y luego $c_2$ seguido por $c_3$ es equivalente a ejecutar primero $c_1$ seguido por $c_2$ y luego $c_3$.\\
+
+            Ahora resolvemos 2:\\
+
+            Si $\blacklozenge$ $\succ$  ⟨($c_1$;$c_2$);$c_3$, $\sigma$⟩ $\longrightarrow^{*}_{W}$ $\blacklozenge$ $\prec$ $\sigma'$, entonces $\blacklozenge$ $\succ$  ⟨$c_1$;($c_2$;$c_3$), $\sigma$⟩ $\longrightarrow^{*}_{W}$ $\blacklozenge$ $\prec$ $\sigma'$. Esta relación también se mantiene debido a la asociatividad de la secuencia en la máquina W. Ejecutar $c_1$ seguido por $c_2$ y luego $c_3$ es equivalente a agrupar primero $c_2$ y $c_3$ ejecutarlos juntos, seguidos por $c_1$.\\
+            
+            Por lo tanto, dado que ambas partes se sostienen, se demuestra que  $c_1$; ($c_2$; $c_3$) $\equiv_w$ ($c_1$; $c_2$); $c_3$ en el lenguaje While.\\ 
+            
         \end{itemize}
     \end{itemize}
 
