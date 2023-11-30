@@ -1,0 +1,135 @@
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,mexico]{babel}
+\usepackage{listings}
+\usepackage{amsmath}
+\setlength{\textwidth}{18cm}
+\setlength{\oddsidemargin}{-1cm}
+\setlength{\headsep}{1cm}
+\setlength{\voffset}{0cm}
+\setlength{\topmargin}{0cm}
+\setlength{\headheight}{0cm}
+\usepackage{tikz}
+\usepackage{semantic}
+\usepackage{url}
+\usetikzlibrary{positioning}
+\usetikzlibrary{calc,arrows}
+\usepackage{multicol}
+\usepackage{lipsum} 
+\usepackage{multirow}
+\usepackage{amssymb}
+
+\usepackage{graphicx}
+\usepackage{forest}
+\usepackage{tikz-qtree}
+\usepackage{xcolor}
+
+\begin{document}
+\pagecolor{black}
+\color{white}
+
+%%%%%% ENCABEZADO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \colorbox{black}{
+        \begin{minipage}[t]{0.16 \textwidth}
+           \begin{flushright}
+            \includegraphics[width=1in]{UNAM.png}
+           \end{flushright}
+        \end{minipage}
+        \begin{minipage}[H]{0.62 \textwidth}
+            \begin{center}
+                {\large \textsc{Universdad Nacional Autónoma de México}}
+                \vspace{0.25cm}
+                \\
+                { \large \textbf{Lenguajes de Programacion\\ Examen Parcial V}}                
+                \textbf{}
+                \begin{multicols}{2}
+                \begin{flushleft}
+                \begin{itemize}
+                    % NOMBRES DE INTEGRANTES
+                    \item  \small Edgar Montiel Ledesma\\ 317317794
+    
+                    \item \footnotesize Carlos Daniel Cortes Jimenez\\ 420004846
+                \end{itemize}
+                \end{flushleft}
+                \vspace{0.25cm}
+                \end{multicols} 
+            \end{center}
+            \vspace{0.05cm}
+        \end{minipage}
+        \begin{minipage}[t]{0.16 \textwidth}
+            \begin{flushleft}
+                \includegraphics[width=1in]{EFC.png}
+            \end{flushleft}
+        \end{minipage}
+    }
+    
+    \begin{tikzpicture}
+        \draw[thick] (-6.5,0)--(11.2,0);
+    \end{tikzpicture}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{itemize}
+        \item[1.] Sean A, B, C, D, E con la siguiente relacion de subtipado:
+        \begin{center}
+            \begin{itemize}
+                \item[ ] E $\leq$ B
+                \item[ ] D $\leq$ B
+                \item[ ] B $\leq$ A
+                \item[ ] C $\leq$ A 
+            \end{itemize}
+        \end{center}
+
+        Para los siguientes subtipados diga si son validos o no. En caso de ser validos, muestre la derivacion formal, en caso de ser invalidos, añada una sola regla que la haga valida y haga la derivacion formal.
+
+        \begin{itemize}
+            \item[a)] ((A $+$ B) $\rightarrow$ \{y : E, x : D\}) $+$ ((A $×$ A) $\rightarrow$ E) $\leq$ ((A $+$ B) $\rightarrow$ \{x : C\}) $+$ ((A × B) $\rightarrow$ C)
+            \item[b)] (E × D × A $\rightarrow$ \{x : A\}) $\rightarrow$ C $\leq$ (B × A $\rightarrow$ \{x : A, y : D\}) $\rightarrow$  A
+        \end{itemize}
+    \end{itemize}
+
+    \begin{itemize}
+        \item[2.] Considera los tipos Rectangulo parametrizado por la altura y el ancho y Cuadrado parametrizado por el tamaño de uno de los lados.
+
+        \begin{itemize}
+            \item[a)] Define los tipos anteriores mediante tipos suma y producto.
+            \item[b)] ¿Que relacion de subtipado existe entre estos tipos? es decir ¿cual de estos es el subtipo y cual el supertipo? justifica tu respuesta, una forma de justificar la respuesta es explicar como serıa el proceso de coercion entre el subtipo y el supertipo.
+            \item[c)] De acuerdo a la relacion de subtipado del inciso anterior, ordena los siguientes tipos funcion:
+            \begin{center}
+                \begin{itemize}
+                     \item[ ] Rectangulo $\rightarrow$ Rectangulo
+                     \item[ ] Rectangulo $\rightarrow$ Cuadrado
+                     \item[ ] Cuadrado $\rightarrow$ Rectangulo
+                     \item[ ] Cuadrado $\rightarrow$ Cuadrado 
+                 \end{itemize}
+            \end{center} 
+        \end{itemize}
+    \end{itemize}
+
+    \begin{itemize}
+        \item[3.] El objetivo de este ejercicio es definir el siguiente mini lenguaje de expresiones aritmeticas y booleanas MinEAB en JPP:
+        \begin{center}
+            \center e ::= n \,| true \,| f alse \,| e + e \,| e $<$ e
+        \end{center}
+
+        Se busca que se sigan los siguientes puntos.
+
+        \begin{itemize}
+            \item[a)] Defina una clase Expr que incluya los siguientes metodos:
+                \begin{itemize}
+                    \item isAtom que devuelve true si la expresion no tiene subexpresiones propias.
+                    \item lsub que devuelve la subexpresion izquierda de una expresion no atomica.
+                    \item rsub que devuelve la subexpresion derecha de una expresion no atomica.
+                    \item eval que devuelve el valor de la expresion.
+                \end{itemize}
+            Esta clase debe ser abstracta en el sentido de que no tiene atributos y por lo tanto sus metodos no hacen nada pero deben ser definidos. Es decir, se considera a Expr como una interfaz.
+            \item[b)] Defina una clase NumExpr que extienda a Expr y de forma que sus instancias correspondan a numeros.
+            \item[c)] Defina una clase BoolExpr que extienda a Expr y de forma que sus instancias correspondan a booleanos.
+            \item[d)] Defina una clase SumExpr que extienda a Expr y de forma que sus instancias correspondan a sumas.
+            \item[e)] Defina una clase LTExpr que extienda a Expr y de forma que sus instancias correspondan a comparaciones de orden.
+            \item[f)] De ejemplos de instancias de cada una de las clases.\\
+            Puede suponer definida una clase Value cuyas instancias sean los valores del lenguaje, ya sea naturales o booleanos. Es decir, Value es esencialmente el tipo Nat + Bool. Ademas de otras clases primitivas con los metodos que requiera, especificandolos previamente. Tambien puede utilizar convenientemente la constante de error en cualquier metodo.
+        \end{itemize}
+    \end{itemize}
+\end{document}
