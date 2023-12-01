@@ -85,7 +85,45 @@
 
         \begin{itemize}
             \item[a)] ((A $+$ B) $\rightarrow$ \{y : E, x : D\}) $+$ ((A $×$ A) $\rightarrow$ E) $\leq$ ((A $+$ B) $\rightarrow$ \{x : C\}) $+$ ((A × B) $\rightarrow$ C)
-            \item[b)] (E × D × A $\rightarrow$ \{x : A\}) $\rightarrow$ C $\leq$ (B × A $\rightarrow$ \{x : A, y : D\}) $\rightarrow$  A
+
+            \begin{center}
+                \begin{itemize}
+                    \item Esta expresión es válida, y la derivación formal es la siguiente:
+                    \item[ ] ((A+B)→\{y:E,x:D\})+((A×A)→E)\\ $\leq$ ((A+B)→\{x:C\})+((A×B)→C)
+                    \item Por regla de subtipado:
+                    \item[ ] (A+B)→\{y:E,x:D\}$\leq$(A+B)→\{x:C\}
+                    \item Por regla de subtipado:
+                    \item[ ] (A×A)→E$\leq$(A×B)→C
+                    \item Por reglas de subtipado anteriores:
+                    \item[ ] A$\leq$B(de B$\leq$A)
+                    \item Por regla de subtipado:
+                    \item[ ] A×A$\leq$A×B
+                    \item Por reglas de subtipado anteriores:
+                    \item[ ] E$\leq$B(de B$\leq$A)
+                    \item Por regla de subtipado:
+                    \item[ ] (A×A)→E$\leq$(A×B)→C
+                    \item Por regla de subtipado:
+                    \item[ ] (A+B)→\{y:E,x:D\}+(A×A)→E\\ $\leq$(A+B)→\{x:C\}+(A×B)→C
+                \end{itemize}
+            \end{center}
+ 
+
+
+            \item[b)] (E × D × A $\rightarrow$ \{x : A\}) $\rightarrow$ C $\leq$ (B × A $\rightarrow$ \{x : A, y : D\}) $\rightarrow$  A\\
+            Esta expresión no es inválida. Para hacerla válida, agregaremos la regla de subtipado A$\leq$C. 
+            \begin{itemize}
+                \item La derivación formal es la siguiente:
+                \item[ ] (E×D×A→\{x:A\})→C\\ $\leq$(B×A→\{x:A,y:D\})→A
+                \item Por regla de subtipado:
+                \item[ ] E×D×A→\{x:A\}$\leq$B×A→\{x:A,y:D\}
+                \item Por reglas de subtipado anteriores:
+                \item[ ] A$\leq$C(nueva regla agregada)
+                \item Por regla de subtipado:
+                \item[ ] E×D×A→\{x:A\}$\leq$B×A→\{x:A,y:D\}
+                \item Por regla de subtipado:
+                \item[ ] (E×D×A→\{x:A\})→C$\leq$(B×A→\{x:A,y:D\})→A
+            \end{itemize}            
+            Ahora, con la adición de la regla A$\leq$C, la expresión se vuelve válida. 
         \end{itemize}
     \end{itemize}
 
