@@ -131,9 +131,34 @@
         \item[2.] Considera los tipos Rectangulo parametrizado por la altura y el ancho y Cuadrado parametrizado por el tamaño de uno de los lados.
 
         \begin{itemize}
-            \item[a)] Define los tipos anteriores mediante tipos suma y producto.
-            \item[b)] ¿Que relacion de subtipado existe entre estos tipos? es decir ¿cual de estos es el subtipo y cual el supertipo? justifica tu respuesta, una forma de justificar la respuesta es explicar como serıa el proceso de coercion entre el subtipo y el supertipo.
-            \item[c)] De acuerdo a la relacion de subtipado del inciso anterior, ordena los siguientes tipos funcion:
+            \item[a)] Define los tipos anteriores mediante tipos suma y producto.\\
+            
+            \begin{itemize}
+                \item Rectangulo: Parametrizado por la altura y el ancho.
+                \item[ ] Rectangulo=Altura×Ancho
+                \item Cuadrado: Parametrizado por el tamaño de uno de los lados.
+                \item[ ] Cuadrado=Lado
+            \end{itemize}
+
+
+
+            \item[b)] ¿Que relacion de subtipado existe entre estos tipos? es decir ¿cual de estos es el subtipo y cual el supertipo? justifica tu respuesta, una forma de justificar la respuesta es explicar como serıa el proceso de coercion entre el subtipo y el supertipo.\\
+
+            Deminimos: Si consideramos que Cuadrado es un caso especial de Rectangulo (un rectángulo con lados iguales), entonces Cuadrado sería el subtipo y Rectangulo el supertipo. Sin embargo, si consideramos que Rectangulo y Cuadrado son tipos independientes, no habría una relación de subtipado entre ellos.\\
+
+            En el primer caso, la coerción sería natural ya que un Cuadrado puede tratarse como un Rectángulo sin ningún problema. La altura y el ancho serían iguales (el tamaño del lado) en el caso de un Cuadrado. En el segundo caso, no habría coerción directa entre los tipos.
+
+            \item[c)] De acuerdo a la relacion de subtipado del inciso anterior, ordena los siguientes tipos funcion:\\
+            Ordenemos los tipos de acuerdo a la relación de subtipado que describimos en el inciso b:
+
+            \begin{itemize}
+                \item Rectangulo→Rectangulo - La relación es reflexiva, por lo que es válida.
+                \item Rectangulo→Cuadrado - Esto sería válido si consideramos que Cuadrado es un caso especial de Rectangulo.
+                \item Cuadrado→Rectangulo - Esto también sería válido si consideramos que Cuadrado es un caso especial de Rectangulo.
+                \item Cuadrado→Cuadrado - La relación es reflexiva, por lo que es válida.\\ En resumen, el orden sería:\\ Cuadrado→Rectangulo→Rectangulo→Cuadrado
+            \end{itemize}
+
+            
             \begin{center}
                 \begin{itemize}
                      \item[ ] Rectangulo $\rightarrow$ Rectangulo
